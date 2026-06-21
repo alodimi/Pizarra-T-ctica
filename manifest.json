@@ -1,0 +1,17 @@
+{
+  "short_name": "Pizarra",
+  "name": "Pizarra Táctica de Fútbol",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#1e1e1e",
+  "theme_color": "#1e1e1e",
+  "display": "standalone",
+  "orientation": "portrait"
+}
