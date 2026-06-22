@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tacticboard-v2';
+const CACHE_NAME = 'tacticboard-v13';
 const ASSETS = [
   './',
   'index.html',

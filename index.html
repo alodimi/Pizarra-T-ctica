@@ -534,41 +534,55 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
 .dropdown-item { padding: 10px 16px; text-align: left; background: transparent; border: none; color: var(--text); font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
 .dropdown-item:hover { background: var(--bg3); }
 .dropdown-item svg { width: 14px; height: 14px; margin-right: 6px; vertical-align: middle; }
-
 /* MODAL */
-#modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 100; align-items: center; justify-content: center; }
-#modal-overlay.open { display: flex; }
-#coach-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 101; align-items: center; justify-content: center; }
-#coach-modal-overlay.open { display: flex; }
-#preview-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 130; align-items: center; justify-content: center; }
-#preview-modal-overlay.open { display: flex; }
-#formation-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 103; align-items: center; justify-content: center; }
-#formation-modal-overlay.open { display: flex; }
-#customization-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 104; align-items: center; justify-content: center; }
-#customization-modal-overlay.open { display: flex; }
-#analysis-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 105; align-items: center; justify-content: center; }
-#analysis-modal-overlay.open { display: flex; }
-#drawing-options-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 106; align-items: center; justify-content: center; }
-#drawing-options-modal-overlay.open { display: flex; }
+#modal-overlay, #coach-modal-overlay, #preview-modal-overlay, #formation-modal-overlay, #customization-modal-overlay, #analysis-modal-overlay, #best-eleven-modal-overlay, #drawing-options-modal-overlay, #color-picker-modal-overlay, #season-modal-overlay, #match-log-modal-overlay, #match-hub-modal-overlay, #match-history-modal-overlay, #player-profile-modal-overlay, #single-stat-modal-overlay, #saved-formations-modal-overlay, #alignment-modal-overlay, #comparison-modal-overlay {
+  display: flex !important;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+#modal-overlay.open, #coach-modal-overlay.open, #preview-modal-overlay.open, #formation-modal-overlay.open, #customization-modal-overlay.open, #analysis-modal-overlay.open, #best-eleven-modal-overlay.open, #drawing-options-modal-overlay.open, #color-picker-modal-overlay.open, #season-modal-overlay.open, #match-log-modal-overlay.open, #match-hub-modal-overlay.open, #match-history-modal-overlay.open, #player-profile-modal-overlay.open, #single-stat-modal-overlay.open, #saved-formations-modal-overlay.open, #alignment-modal-overlay.open, #comparison-modal-overlay.open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 
-#season-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 107; align-items: center; justify-content: center; }
-#season-modal-overlay.open { display: flex; }
-#match-log-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 108; align-items: center; justify-content: center; }
-#match-log-modal-overlay.open { display: flex; }
-#match-hub-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 107; align-items: center; justify-content: center; }
-#match-hub-modal-overlay.open { display: flex; }
-#match-history-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 109; align-items: center; justify-content: center; }
-#match-history-modal-overlay.open { display: flex; }
-#player-profile-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 110; align-items: center; justify-content: center; }
-#player-profile-modal-overlay.open { display: flex; }
-#single-stat-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 120; align-items: center; justify-content: center; }
-#single-stat-modal-overlay.open { display: flex; }
-#saved-formations-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 102; align-items: center; justify-content: center; }
-#saved-formations-modal-overlay.open { display: flex; }
-#alignment-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 104; align-items: center; justify-content: center; }
-#alignment-modal-overlay.open { display: flex !important; }
-#comparison-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 150; align-items: center; justify-content: center; }
-#comparison-modal-overlay.open { display: flex !important; }
+#modal-overlay .modal, #coach-modal-overlay .modal, #preview-modal-overlay .modal, #formation-modal-overlay .modal, #customization-modal-overlay .modal, #analysis-modal-overlay .modal, #best-eleven-modal-overlay .modal, #drawing-options-modal-overlay .modal, #color-picker-modal-overlay .modal, #season-modal-overlay .modal, #match-log-modal-overlay .modal, #match-hub-modal-overlay .modal, #match-history-modal-overlay .modal, #player-profile-modal-overlay .modal, #single-stat-modal-overlay .modal, #saved-formations-modal-overlay .modal, #alignment-modal-overlay .modal, #comparison-modal-overlay .modal {
+  transform: scale(0.9);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#modal-overlay.open .modal, #coach-modal-overlay.open .modal, #preview-modal-overlay.open .modal, #formation-modal-overlay.open .modal, #customization-modal-overlay.open .modal, #analysis-modal-overlay.open .modal, #best-eleven-modal-overlay.open .modal, #drawing-options-modal-overlay.open .modal, #color-picker-modal-overlay.open .modal, #season-modal-overlay.open .modal, #match-log-modal-overlay.open .modal, #match-hub-modal-overlay.open .modal, #match-history-modal-overlay.open .modal, #player-profile.open .modal, #player-profile-modal-overlay.open .modal, #single-stat-modal-overlay.open .modal, #saved-formations-modal-overlay.open .modal, #alignment-modal-overlay.open .modal, #comparison-modal-overlay.open .modal {
+  transform: scale(1) !important;
+}
+
+#modal-overlay { z-index: 100; }
+#coach-modal-overlay { z-index: 101; }
+#preview-modal-overlay { z-index: 130; }
+#formation-modal-overlay { z-index: 103; }
+#customization-modal-overlay { z-index: 104; }
+#analysis-modal-overlay { z-index: 105; }
+#best-eleven-modal-overlay { z-index: 105; }
+#drawing-options-modal-overlay { z-index: 106; }
+#color-picker-modal-overlay { z-index: 107; }
+#season-modal-overlay { z-index: 107; }
+#match-log-modal-overlay { z-index: 108; }
+#match-hub-modal-overlay { z-index: 107; }
+#match-history-modal-overlay { z-index: 109; }
+#player-profile-modal-overlay { z-index: 110; }
+#single-stat-modal-overlay { z-index: 120; }
+#saved-formations-modal-overlay { z-index: 102; }
+#alignment-modal-overlay { z-index: 104; }
+#comparison-modal-overlay { z-index: 150; }
+
+.color-palette-swatch { width: 44px; height: 44px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s ease; outline: none; }
+.color-palette-swatch:hover { transform: scale(1.1); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+.color-palette-swatch.active { border-color: var(--text); transform: scale(1.05); box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }}
 #main-menu-overlay {
   display: flex;
   position: fixed;
@@ -665,6 +679,24 @@ body.light-theme .modal {
 }
 .brush-size-btn:hover:not(.active) {
   background: var(--bg4) !important;
+}
+.color-swatch-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 1px var(--border);
+}
+.color-swatch-btn:hover {
+  transform: scale(1.15);
+}
+.color-swatch-btn.active {
+  border-color: var(--text);
+  box-shadow: 0 0 0 1.5px var(--text);
+  transform: scale(1.15);
 }
 @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
 @keyframes playerFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -1187,8 +1219,8 @@ body.mobile-mode .mobile-hint { display: block !important; }
 body.mobile-mode input, body.mobile-mode select, body.mobile-mode textarea { font-size: 16px !important; }
 
 /* MOBILE MODALS: FULL SCREEN & APP-LIKE */
-body.mobile-mode #modal-overlay, body.mobile-mode #coach-modal-overlay, body.mobile-mode #formation-modal-overlay, body.mobile-mode #customization-modal-overlay, body.mobile-mode #analysis-modal-overlay, body.mobile-mode #season-modal-overlay, body.mobile-mode #saved-formations-modal-overlay, body.mobile-mode #tm-import-modal-overlay, body.mobile-mode #match-log-modal-overlay, body.mobile-mode #match-history-modal-overlay, body.mobile-mode #player-profile-modal-overlay, body.mobile-mode #preview-modal-overlay, body.mobile-mode #single-stat-modal-overlay, body.mobile-mode #alignment-modal-overlay, body.mobile-mode #comparison-modal-overlay, body.mobile-mode #drawing-options-modal-overlay { padding: 0; }
-body.mobile-mode #modal-overlay .modal, body.mobile-mode #coach-modal-overlay .modal, body.mobile-mode #formation-modal-overlay .modal, body.mobile-mode #customization-modal-overlay .modal, body.mobile-mode #analysis-modal-overlay .modal, body.mobile-mode #season-modal-overlay .modal, body.mobile-mode #saved-formations-modal-overlay .modal, body.mobile-mode #tm-import-modal-overlay .modal, body.mobile-mode #match-log-modal-overlay .modal, body.mobile-mode #match-history-modal-overlay .modal, body.mobile-mode #player-profile-modal-overlay .modal, body.mobile-mode #preview-modal-overlay .modal, body.mobile-mode #single-stat-modal-overlay .modal, body.mobile-mode #alignment-modal-overlay .modal, body.mobile-mode #comparison-modal-overlay .modal, body.mobile-mode #drawing-options-modal-overlay .modal { padding: 20px 16px; width: 100% !important; max-width: 100% !important; height: 100% !important; max-height: 100% !important; border-radius: 0; border: none; display: flex; flex-direction: column; overflow-y: auto !important; }
+body.mobile-mode #modal-overlay, body.mobile-mode #coach-modal-overlay, body.mobile-mode #formation-modal-overlay, body.mobile-mode #customization-modal-overlay, body.mobile-mode #analysis-modal-overlay, body.mobile-mode #best-eleven-modal-overlay, body.mobile-mode #season-modal-overlay, body.mobile-mode #saved-formations-modal-overlay, body.mobile-mode #tm-import-modal-overlay, body.mobile-mode #match-log-modal-overlay, body.mobile-mode #match-history-modal-overlay, body.mobile-mode #player-profile-modal-overlay, body.mobile-mode #preview-modal-overlay, body.mobile-mode #single-stat-modal-overlay, body.mobile-mode #alignment-modal-overlay, body.mobile-mode #comparison-modal-overlay, body.mobile-mode #drawing-options-modal-overlay, body.mobile-mode #color-picker-modal-overlay { padding: 0; }
+body.mobile-mode #modal-overlay .modal, body.mobile-mode #coach-modal-overlay .modal, body.mobile-mode #formation-modal-overlay .modal, body.mobile-mode #customization-modal-overlay .modal, body.mobile-mode #analysis-modal-overlay .modal, body.mobile-mode #best-eleven-modal-overlay .modal, body.mobile-mode #season-modal-overlay .modal, body.mobile-mode #saved-formations-modal-overlay .modal, body.mobile-mode #tm-import-modal-overlay .modal, body.mobile-mode #match-log-modal-overlay .modal, body.mobile-mode #match-history-modal-overlay .modal, body.mobile-mode #player-profile-modal-overlay .modal, body.mobile-mode #preview-modal-overlay .modal, body.mobile-mode #single-stat-modal-overlay .modal, body.mobile-mode #alignment-modal-overlay .modal, body.mobile-mode #comparison-modal-overlay .modal, body.mobile-mode #drawing-options-modal-overlay .modal, body.mobile-mode #color-picker-modal-overlay .modal { padding: 20px 16px; width: 100% !important; max-width: 100% !important; height: 100% !important; max-height: 100% !important; border-radius: 0; border: none; display: flex; flex-direction: column; overflow-y: auto !important; }
 body.mobile-mode .modal > div[style*="max-height"] { max-height: none !important; flex: 1; overflow-y: auto; padding-right: 4px !important; }
 body.mobile-mode .modal-actions { flex-direction: row; gap: 10px; margin-top: auto !important; padding-top: 16px; }
 body.mobile-mode .modal-actions button { flex: 1; padding: 14px !important; font-size: 16px !important; justify-content: center; }
@@ -1696,13 +1728,16 @@ body.read-only-mode .write-control { display: none !important; }
               <button class="fmn-btn" id="btn-tool-circle" onclick="setTool('circle')">Círculo</button>
               <button class="fmn-btn" id="btn-tool-eraser" onclick="setTool('eraser')" style="color: var(--red2);">Goma</button>
             </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:2px;">
+              <span style="font-size:11px; color:var(--text3); font-weight: 500;">Color pincel:</span>
+              <button id="drawing-current-color-btn" onclick="openColorPickerModal()" style="width:22px; height:22px; border-radius:50%; border:2px solid var(--text); background-color:#ffdc32; cursor:pointer; padding:0; box-shadow:0 0 0 1px var(--border); transition: transform 0.2s; outline:none;" title="Cambiar color del pincel"></button>
+            </div>
             <div style="display:flex; align-items:center; justify-content:space-between; margin-top:4px; border-top:1px dashed var(--border); padding-top:6px;">
               <span style="font-size:11px; color:var(--text3); font-weight: 500;">Rellenar figuras:</span>
               <label class="main-toggle-switch">
                 <input type="checkbox" id="drawing-fill-sidebar" onchange="setFillShapes(this.checked)">
                 <span class="slider"></span>
               </label>
-            </div>
             <div style="display: flex; gap: 5px; margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px;">
               <button class="sb-btn" onclick="undoLastDrawing()" style="flex:1; justify-content:center; padding: 6px; gap: 4px;" title="Deshacer trazo (dibujo)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px; height:12px;"><path d="M3 10h10a5 5 0 015 5v2M3 10l5 5M3 10l5-5"/></svg>
@@ -1794,6 +1829,8 @@ body.read-only-mode .write-control { display: none !important; }
             <button class="fmn-btn" id="m-tool-circle" onclick="setTool('circle')" style="flex-shrink: 0; white-space: nowrap; padding: 6px 10px;">⭕ Círculo</button>
             <button class="fmn-btn" id="m-tool-eraser" onclick="setTool('eraser')" style="color:var(--red2); flex-shrink: 0; white-space: nowrap; padding: 6px 10px;">🧽 Goma</button>
             <button class="fmn-btn" id="m-tool-options" onclick="openDrawingOptionsModal()" style="flex-shrink: 0; white-space: nowrap; padding: 6px 10px;">⚙️ Opciones</button>
+            <div style="width: 1px; height: 16px; background: var(--border); flex-shrink: 0; margin: 0 4px;"></div>
+            <button id="m-drawing-current-color-btn" onclick="openColorPickerModal()" style="width:20px; height:20px; min-width:20px; border-radius:50%; border:2px solid var(--text); background-color:#ffdc32; cursor:pointer; padding:0; box-shadow:0 0 0 1px var(--border); flex-shrink:0; outline:none;" title="Cambiar color del pincel"></button>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-shrink:0;">
             <button class="sb-btn" onclick="undoLastDrawing()" style="padding:6px 8px; width:auto; margin:0;" title="Deshacer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M3 10h10a5 5 0 015 5v2M3 10l5 5M3 10l5-5"/></svg></button>
@@ -1846,6 +1883,7 @@ body.read-only-mode .write-control { display: none !important; }
             <div id="more-actions-dropdown" class="dropdown-content">
               <button class="dropdown-item" onclick="openTmImportModal()">🤖 Importar Transfermarkt</button>
               <button class="dropdown-item" onclick="document.getElementById('import-csv-input').click()">📥 Importar CSV</button>
+              <button class="dropdown-item" onclick="downloadCSVTemplate()">📄 Descargar Plantilla CSV</button>
               <button class="dropdown-item" onclick="openSquadExportModal()">📤 Exportar / Compartir</button>
             </div>
           </div>
@@ -1962,44 +2000,15 @@ body.read-only-mode .write-control { display: none !important; }
       </div>
 
       <!-- 3. ONCE IDEAL POR RENDIMIENTO -->
-      <details id="best-eleven-card" class="analysis-card" style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow-sm); margin-bottom: 16px;">
-        <summary style="font-size:15px; font-weight:700; display:flex; align-items:center; gap:6px; cursor:pointer; outline:none; user-select:none;">✨ Once Ideal de la Temporada<span class="details-arrow" style="margin-left:auto; font-size:10px; transition:transform 0.2s;">▼</span></summary>
-        <div style="margin-top:12px; display:flex; flex-direction:column; gap:12px;">
-          <div style="font-size:12px; color:var(--text3);">Calcula y visualiza la alineación más eficiente de la temporada basada en el rendimiento de goles, asistencias y vallas invictas de toda tu plantilla.</div>
-          
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-            <select id="best-eleven-formation" style="padding:8px 12px; font-size:13px; font-weight:700; border-radius:8px; border:1px solid var(--border); background:var(--bg3); color:var(--text); width:auto; height:36px; outline:none; cursor:pointer;" onchange="generateBestEleven()">
-              <option value="4-3-3">Alineación: 4-3-3</option>
-              <option value="4-4-2">Alineación: 4-4-2</option>
-              <option value="3-5-2">Alineación: 3-5-2</option>
-              <option value="4-2-3-1">Alineación: 4-2-3-1</option>
-            </select>
-            <button id="btn-export-best-eleven" class="sb-btn" style="display: none; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color:white; border:none; padding:8px 16px; font-weight:700; width:auto; box-shadow:0 4px 10px rgba(16,185,129,0.25); align-items: center; gap: 6px;" onclick="exportBestElevenImage()">📸 Exportar Imagen</button>
+      <div id="best-eleven-card" class="analysis-card" style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow-sm); margin-bottom: 16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:200px;">
+            <h3 style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px; display:flex; align-items:center; gap:6px;">✨ Once Ideal de la Temporada</h3>
+            <div style="font-size:12px; color:var(--text3);">Calcula la alineación más eficiente del equipo basándose en estadísticas y rendimiento.</div>
           </div>
-
-          <div id="best-eleven-pitch-container" style="display: none; margin-top: 10px; flex-direction: column; gap: 12px;">
-            <div class="mini-pitch-wrapper" style="position: relative; width: 100%; max-width: 320px; aspect-ratio: 2/3; margin: 0 auto;">
-              <!-- Green field with overflow hidden -->
-              <div class="mini-pitch-field" style="position: absolute; inset: 0; background: linear-gradient(180deg, #15803d 0%, #166534 100%); border-radius: 12px; border: 2px solid rgba(255,255,255,0.4); overflow: hidden; box-shadow: inset 0 0 40px rgba(0,0,0,0.4);">
-                <!-- Field Lines -->
-                <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.35);"></div>
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 33%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.35); border-radius: 50%;"></div>
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 6px; height: 6px; background: rgba(255,255,255,0.35); border-radius: 50%;"></div>
-                
-                <!-- Penalty areas -->
-                <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 16%; border: 2px solid rgba(255,255,255,0.35); border-top: none;"></div>
-                <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 26%; height: 6%; border: 2px solid rgba(255,255,255,0.35); border-top: none;"></div>
-                
-                <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 16%; border: 2px solid rgba(255,255,255,0.35); border-bottom: none;"></div>
-                <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 26%; height: 6%; border: 2px solid rgba(255,255,255,0.35); border-bottom: none;"></div>
-              </div>
-              
-              <!-- Players container -->
-              <div id="mini-pitch-players" style="position: absolute; inset: 0; pointer-events: none;"></div>
-            </div>
-          </div>
+          <button class="sb-btn" onclick="openBestElevenModal()" style="background:var(--blue); color:white; border-color:var(--blue2); padding:8px 16px; font-weight:700; font-size:13px; box-shadow:var(--shadow-sm);" onmouseover="this.style.background='#2d7de8'" onmouseout="this.style.background='var(--blue)'">📊 Ver Once Ideal</button>
         </div>
-      </details>
+      </div>
 
       <!-- 4. COMPARADOR DE JUGADORES -->
       <details class="analysis-card" style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow-sm); margin-bottom: 16px;">
@@ -2363,6 +2372,7 @@ body.read-only-mode .write-control { display: none !important; }
     </div>
     <div id="preview-action-options" style="display:none; gap:12px; align-items:center; background: var(--bg3); padding: 12px; border-radius: 8px; margin-bottom:12px; justify-content:center; flex-wrap:wrap;">
        <button class="export-action-btn btn-primary" onclick="document.getElementById('download-link').click()">📸 Guardar PNG</button>
+       <button id="btn-export-pdf" class="export-action-btn" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border: none; box-shadow: 0 4px 10px rgba(239,68,68,0.25); display: flex; align-items: center; gap: 6px;" onclick="exportToPDF()">📄 Guardar PDF</button>
        <button id="btn-export-csv" class="export-action-btn" onclick="exportSquadCSV()">📊 Descargar CSV</button>
        <button id="btn-export-copy" class="export-action-btn" onclick="handlePreviewCopy()">📋 Copiar Texto</button>
        <button id="btn-export-share" class="export-action-btn btn-accent" onclick="sharePreview()">🔗 Compartir</button>
@@ -2593,10 +2603,14 @@ body.read-only-mode .write-control { display: none !important; }
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; background: var(--bg); padding: 12px; border-radius: 8px; border: 1px solid var(--border);">
           <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">P</span> Lápiz</div>
           <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">F</span> Flecha</div>
+          <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">V</span> Fl. Curva</div>
+          <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">L</span> Línea</div>
+          <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">O</span> Círculo</div>
+          <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">R</span> Rectángulo</div>
           <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">T</span> Texto</div>
           <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">E</span> Borrador</div>
           <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">C</span> Limpiar</div>
-          <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">1-4</span> Grosor Trazo</div>
+          <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">1-4</span> Grosor</div>
           <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">Ctrl+Z</span> Deshacer</div>
           <div style="font-size: 12px; color: var(--text2); display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 800; color: var(--amber2);">Ctrl+Y</span> Rehacer</div>
         </div>
@@ -2727,6 +2741,84 @@ body.read-only-mode .write-control { display: none !important; }
 </div>
 
 
+
+<!-- MODAL ONCE IDEAL -->
+<div id="best-eleven-modal-overlay" onclick="closeBestElevenModalOutside(event)">
+  <div class="modal" style="width: 550px; max-height: 95vh; display: flex; flex-direction: column; overflow-y: auto;">
+    <h3 style="margin-bottom:16px; font-size:18px; border-bottom:1px solid var(--border); padding-bottom:12px; display:flex; align-items:center; gap:6px;">✨ Once Ideal de la Temporada</h3>
+    
+    <div style="display:flex; flex-direction:column; gap:16px; align-items:center; width:100%; flex: 1;">
+      <div style="font-size:12px; color:var(--text3); width: 100%;">
+        Alineación más eficiente de la temporada basada en rendimiento (goles, asistencias y vallas invictas).
+      </div>
+      <div style="display: flex; gap: 10px; width:100%; justify-content:space-between; align-items: center; flex-wrap:wrap;">
+        <select id="best-eleven-formation" style="padding:8px 12px; font-size:13px; font-weight:700; border-radius:8px; border:1px solid var(--border); background:var(--bg3); color:var(--text); width:auto; height:36px; outline:none; cursor:pointer;" onchange="generateBestEleven()">
+          <option value="4-3-3">Alineación: 4-3-3</option>
+          <option value="4-4-2">Alineación: 4-4-2</option>
+          <option value="3-5-2">Alineación: 3-5-2</option>
+          <option value="4-2-3-1">Alineación: 4-2-3-1</option>
+        </select>
+        
+        <!-- SWITCH DE INFLUENCIA ECONÓMICA -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 11px; font-weight: 600; color: var(--text3);">Valor de Mercado</span>
+          <label class="main-toggle-switch" style="width: 38px; height: 20px; position: relative; display: inline-block;">
+            <input type="checkbox" id="best-eleven-use-value" onchange="generateBestEleven()" style="opacity: 0; width: 0; height: 0;">
+            <span class="main-toggle-slider" style="border-radius: 20px; position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--bg3); transition: .4s; border: 1px solid var(--border);"></span>
+          </label>
+        </div>
+
+        <button id="btn-export-best-eleven" class="sb-btn" style="display: none; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color:white; border:none; padding:8px 16px; font-weight:700; width:auto; box-shadow:0 4px 10px rgba(16,185,129,0.25); align-items: center; gap: 6px;" onclick="exportBestElevenImage()">📸 Exportar Imagen</button>
+      </div>
+
+      <!-- KPI CONTAINER -->
+      <div id="best-eleven-kpis" style="display:none; width:100%; grid-template-columns: repeat(4, 1fr); gap: 8px; background:var(--bg2); padding:10px; border-radius:10px; border:1px solid var(--border); box-sizing: border-box; margin-top: 4px;">
+        <div style="text-align:center;">
+          <div style="font-size:10px; color:var(--text3); text-transform:uppercase; font-weight:700; letter-spacing:0.02em;">Valor Total</div>
+          <div id="kpi-best-value" style="font-size:13px; font-weight:900; color:var(--text); margin-top:2px;">€0M</div>
+        </div>
+        <div style="text-align:center; border-left:1px solid var(--border);">
+          <div style="font-size:10px; color:var(--text3); text-transform:uppercase; font-weight:700; letter-spacing:0.02em;">Edad Media</div>
+          <div id="kpi-best-age" style="font-size:13px; font-weight:900; color:var(--text); margin-top:2px;">0.0 a.</div>
+        </div>
+        <div style="text-align:center; border-left:1px solid var(--border);">
+          <div style="font-size:10px; color:var(--text3); text-transform:uppercase; font-weight:700; letter-spacing:0.02em;">Goles/Asist.</div>
+          <div id="kpi-best-stats" style="font-size:13px; font-weight:900; color:var(--green3); margin-top:2px;">0 / 0</div>
+        </div>
+        <div style="text-align:center; border-left:1px solid var(--border);">
+          <div style="font-size:10px; color:var(--text3); text-transform:uppercase; font-weight:700; letter-spacing:0.02em;">Estrella</div>
+          <div id="kpi-best-star" style="font-size:11px; font-weight:900; color:var(--amber2); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="">-</div>
+        </div>
+      </div>
+
+      <div id="best-eleven-pitch-container" style="display: none; margin-top: 10px; width:100%; flex-direction: column; gap: 12px; align-items:center;">
+        <div class="mini-pitch-wrapper" style="position: relative; width: 100%; max-width: 380px; aspect-ratio: 2/3; margin: 0 auto;">
+          <!-- Green field with overflow hidden -->
+          <div class="mini-pitch-field" style="position: absolute; inset: 0; background: linear-gradient(180deg, #15803d 0%, #166534 100%); border-radius: 12px; border: 2px solid rgba(255,255,255,0.4); overflow: hidden; box-shadow: inset 0 0 40px rgba(0,0,0,0.4);">
+            <!-- Field Lines -->
+            <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.35);"></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 33%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.35); border-radius: 50%;"></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 6px; height: 6px; background: rgba(255,255,255,0.35); border-radius: 50%;"></div>
+            
+            <!-- Penalty areas -->
+            <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 16%; border: 2px solid rgba(255,255,255,0.35); border-top: none;"></div>
+            <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 26%; height: 6%; border: 2px solid rgba(255,255,255,0.35); border-top: none;"></div>
+            
+            <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 16%; border: 2px solid rgba(255,255,255,0.35); border-bottom: none;"></div>
+            <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 26%; height: 6%; border: 2px solid rgba(255,255,255,0.35); border-bottom: none;"></div>
+          </div>
+          
+          <!-- Players container -->
+          <div id="mini-pitch-players" style="position: absolute; inset: 0; pointer-events: none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-actions" style="margin-top:24px;">
+      <button class="btn-cancel" onclick="closeBestElevenModal()" style="width: 100%;">Cerrar</button>
+    </div>
+  </div>
+</div>
 
 <!-- MODAL ANÁLISIS DETALLADO -->
 <div id="analysis-modal-overlay" onclick="closeAnalysisModalOutside(event)">
@@ -2972,6 +3064,35 @@ body.read-only-mode .write-control { display: none !important; }
     </div>
     <div class="modal-actions" style="margin-top: 24px;">
       <button class="btn-cancel" onclick="closeDrawingOptionsModal()" style="width:100%; justify-content:center;">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE COLORES -->
+<div id="color-picker-modal-overlay" onclick="if(event.target.id==='color-picker-modal-overlay') closeColorPickerModal()">
+  <div class="modal" style="width: 320px; padding: 24px;">
+    <h3 style="margin-bottom: 16px; font-size: 16px; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; font-weight:700; text-align: center;">🎨 Color del Pincel</h3>
+    
+    <!-- Cuadrícula de colores rápidos premium -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; justify-items: center;">
+      <button class="color-palette-swatch" data-color="#ffdc32" onclick="selectColorFromPalette('#ffdc32')" style="background-color: #ffdc32;" title="Amarillo Táctico"></button>
+      <button class="color-palette-swatch" data-color="#ef4444" onclick="selectColorFromPalette('#ef4444')" style="background-color: #ef4444;" title="Rojo"></button>
+      <button class="color-palette-swatch" data-color="#3b82f6" onclick="selectColorFromPalette('#3b82f6')" style="background-color: #3b82f6;" title="Azul"></button>
+      <button class="color-palette-swatch" data-color="#10b981" onclick="selectColorFromPalette('#10b981')" style="background-color: #10b981;" title="Verde"></button>
+      <button class="color-palette-swatch" data-color="#a855f7" onclick="selectColorFromPalette('#a855f7')" style="background-color: #a855f7;" title="Morado"></button>
+      <button class="color-palette-swatch" data-color="#f97316" onclick="selectColorFromPalette('#f97316')" style="background-color: #f97316;" title="Naranja"></button>
+      <button class="color-palette-swatch" data-color="#ffffff" onclick="selectColorFromPalette('#ffffff')" style="background-color: #ffffff;" title="Blanco"></button>
+      <button class="color-palette-swatch" data-color="#0f172a" onclick="selectColorFromPalette('#0f172a')" style="background-color: #0f172a;" title="Oscuro"></button>
+    </div>
+
+    <!-- Selector personalizado avanzado -->
+    <div style="display:flex; align-items:center; justify-content:space-between; border-top: 1px dashed var(--border); padding-top: 14px; margin-bottom: 20px;">
+      <span style="font-size:13px; color:var(--text2); font-weight:600;">Personalizado:</span>
+      <input type="color" id="modal-advanced-color-picker" value="#ffdc32" onchange="selectColorFromPalette(this.value)" style="width:40px; height:30px; padding:0; border:1px solid var(--border); background:transparent; cursor:pointer; border-radius:4px;">
+    </div>
+    
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeColorPickerModal()" style="width:100%; justify-content:center;">Aceptar</button>
     </div>
   </div>
 </div>
@@ -3532,18 +3653,100 @@ function updateMobileBottomToggles() {
     }
 }
 
+// Promise-based IndexedDB Helper
+const DB_NAME = 'TacticaProDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'appDataStore';
+
+let dbInstance = null;
+
+function initIndexedDB() {
+  return new Promise((resolve) => {
+    try {
+      const request = indexedDB.open(DB_NAME, DB_VERSION);
+      request.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) {
+          db.createObjectStore(STORE_NAME);
+        }
+      };
+      request.onsuccess = (e) => {
+        dbInstance = e.target.result;
+        resolve(dbInstance);
+      };
+      request.onerror = (e) => {
+        console.error('IndexedDB open error:', e);
+        resolve(null);
+      };
+    } catch(err) {
+      console.error('IndexedDB not supported:', err);
+      resolve(null);
+    }
+  });
+}
+
+function getDBValue(key) {
+  return new Promise((resolve) => {
+    if (!dbInstance) {
+      resolve(localStorage.getItem(key));
+      return;
+    }
+    try {
+      const transaction = dbInstance.transaction(STORE_NAME, 'readonly');
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.get(key);
+      request.onsuccess = () => resolve(request.result || localStorage.getItem(key));
+      request.onerror = () => resolve(localStorage.getItem(key));
+    } catch (e) {
+      resolve(localStorage.getItem(key));
+    }
+  });
+}
+
+function setDBValue(key, value) {
+  return new Promise((resolve) => {
+    if (!dbInstance) {
+      resolve(false);
+      return;
+    }
+    try {
+      const transaction = dbInstance.transaction(STORE_NAME, 'readwrite');
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.put(value, key);
+      request.onsuccess = () => resolve(true);
+      request.onerror = () => resolve(false);
+    } catch (e) {
+      resolve(false);
+    }
+  });
+}
+
+function showAutosaveIndicator(show) {
+  const el = document.getElementById('autosave-indicator');
+  if (el) {
+    if (show) {
+      el.style.display = 'flex';
+      setTimeout(() => { el.style.opacity = '1'; }, 10);
+    } else {
+      el.style.opacity = '0';
+      setTimeout(() => {
+        if (el.style.opacity === '0') el.style.display = 'none';
+      }, 300);
+    }
+  }
+}
+
 function setLocalStorage(key, data) {
   try {
     localStorage.setItem(key, data);
-    return true;
   } catch (e) {
-    if (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
-      alert('Error al guardar: Límite de almacenamiento del navegador superado.\n\nEsto suele ocurrir por tener logos de equipo muy grandes. Considera usar imágenes optimizadas o eliminar equipos que ya no necesites.');
-    } else {
-      alert('Error inesperado al guardar los datos: ' + e.name);
-    }
-    return false;
+    console.warn('LocalStorage lleno o bloqueado. Usando IndexedDB como almacenamiento principal.');
   }
+  
+  if (dbInstance) {
+    setDBValue(key, data);
+  }
+  return true;
 }
 
 // ==================== DROPDOWN SYSTEM ====================
@@ -3811,13 +4014,14 @@ function getContrastColor(hexColor) {
   return luminance > 0.5 ? '#000000' : '#ffffff';
 }
 
-function loadInitialData() {
+async function loadInitialData() {
+  await initIndexedDB();
   let saved = null;
   
   try {
-    saved = localStorage.getItem('tacticaProAppData_v2');
+    saved = await getDBValue('tacticaProAppData_v2');
   } catch (e) {
-    console.warn('LocalStorage bloqueado o no disponible.');
+    console.warn('IndexedDB bloqueado o no disponible.');
   }
   
       let parsedData = null;
@@ -3833,7 +4037,7 @@ function loadInitialData() {
       // 🔄 RECUPERACIÓN AUTOMÁTICA DE AUTO-BACKUP (Si fallan los principales)
       if (!parsedData) {
          try {
-            const backup = localStorage.getItem('tacticaProAppData_backup');
+            const backup = await getDBValue('tacticaProAppData_backup');
             if (backup) {
                parsedData = JSON.parse(backup);
                setLocalStorage('tacticaProAppData_v2', backup);
@@ -4256,6 +4460,7 @@ function selectTeam(teamId) {
 
 let saveTimeout = null;
 function executeSave() {
+  showAutosaveIndicator(true);
   setLocalStorage('tacticaProAppData_v2', JSON.stringify(appData));
   saveTimeout = null;
   
@@ -4265,6 +4470,7 @@ function executeSave() {
     addAutoBackupPoint('Auto-guardado');
     lastAutoBackupTime = now;
   }
+  setTimeout(() => showAutosaveIndicator(false), 800);
 }
 
 function saveData() {
@@ -4378,39 +4584,7 @@ function importSingleTeamData(importedTeam) {
   alert(`Equipo "${importedTeam.name}" importado con éxito.`);
 }
 
-function importBackupData(importedData) {
-  if (appData.teams && appData.teams.length > 0) {
-    const merge = confirm('¿Deseas conservar tus equipos actuales y añadir los importados?\n\nAceptar = Fusionar (Añadir equipos)\nCancelar = Sobreescribir mis datos');
-    if (merge) {
-      let maxId = appData.nextTeamId || 1;
-      importedData.teams.forEach(t => {
-        t.id = maxId++;
-        appData.teams.push(t);
-      });
-      appData.nextTeamId = maxId;
-    } else {
-      if (!confirm('⚠️ ATENCIÓN: Vas a ELIMINAR todos tus equipos actuales de forma irreversible. ¿Estás seguro?')) {
-        return;
-      }
-      appData = importedData;
-      appData.teams.forEach(t => {
-        if (t.players) {
-          t.players.forEach(p => {
-            if (p.status !== undefined) { p.isInjured = p.status === 'injured' || p.status === 'both'; p.isSuspended = p.status === 'suspended' || p.status === 'both'; delete p.status; }
-          });
-        }
-      });
-    }
-  } else {
-    appData = importedData;
-    appData.teams.forEach(t => {
-      if (t.players) {
-        t.players.forEach(p => {
-          if (p.status !== undefined) { p.isInjured = p.status === 'injured' || p.status === 'both'; p.isSuspended = p.status === 'suspended' || p.status === 'both'; delete p.status; }
-        });
-      }
-    });
-  }
+function finalizeImportBackup() {
   if (setLocalStorage('tacticaProAppData_v2', JSON.stringify(appData))) {
     if (appData.teams && appData.teams.length > 0) {
       const teamExists = activeTeamId && appData.teams.some(t => t.id === activeTeamId);
@@ -4424,6 +4598,45 @@ function importBackupData(importedData) {
       renderMainMenu();
     }
     alert('Copia de seguridad importada con éxito.');
+  }
+}
+
+function importBackupData(importedData) {
+  if (appData.teams && appData.teams.length > 0) {
+    showCustomConfirm('¿Deseas conservar tus equipos actuales y añadir los importados?\n\nAceptar = Fusionar (Añadir equipos)\nCancelar = Sobreescribir mis datos', 'Importar copia de seguridad').then(merge => {
+      if (merge) {
+        let maxId = appData.nextTeamId || 1;
+        importedData.teams.forEach(t => {
+          t.id = maxId++;
+          appData.teams.push(t);
+        });
+        appData.nextTeamId = maxId;
+        finalizeImportBackup();
+      } else {
+        showCustomConfirm('⚠️ ATENCIÓN: Vas a ELIMINAR todos tus equipos actuales de forma irreversible. ¿Estás seguro?', 'Confirmar eliminación irreversible').then(confirmDelete => {
+          if (!confirmDelete) return;
+          appData = importedData;
+          appData.teams.forEach(t => {
+            if (t.players) {
+              t.players.forEach(p => {
+                if (p.status !== undefined) { p.isInjured = p.status === 'injured' || p.status === 'both'; p.isSuspended = p.status === 'suspended' || p.status === 'both'; delete p.status; }
+              });
+            }
+          });
+          finalizeImportBackup();
+        });
+      }
+    });
+  } else {
+    appData = importedData;
+    appData.teams.forEach(t => {
+      if (t.players) {
+        t.players.forEach(p => {
+          if (p.status !== undefined) { p.isInjured = p.status === 'injured' || p.status === 'both'; p.isSuspended = p.status === 'suspended' || p.status === 'both'; delete p.status; }
+        });
+      }
+    });
+    finalizeImportBackup();
   }
 }
 
@@ -6159,6 +6372,12 @@ function setDrawingColor(color) {
   const mobPicker = document.getElementById('m-drawing-color');
   if (deskPicker && deskPicker.value !== color) deskPicker.value = color;
   if (mobPicker && mobPicker.value !== color) mobPicker.value = color;
+  
+  // Sincronizar el color de fondo de los botones circulares indicadores
+  const deskBtn = document.getElementById('drawing-current-color-btn');
+  const mobBtn = document.getElementById('m-drawing-current-color-btn');
+  if (deskBtn) deskBtn.style.backgroundColor = color;
+  if (mobBtn) mobBtn.style.backgroundColor = color;
 }
 
 function undoLastDrawing() {
@@ -6353,18 +6572,24 @@ function simplifyPath(points, epsilon) {
   }
 }
 
-function drawRoundRect(ctx, x, y, w, h, r) {
+function drawRoundRect(ctx, x, y, width, height, radius, fill = false, stroke = false) {
   ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.lineTo(x + w - r, y);
-  ctx.arcTo(x + w, y, x + w, y + r, r);
-  ctx.lineTo(x + w, y + h - r);
-  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
-  ctx.lineTo(x + r, y + h);
-  ctx.arcTo(x, y + h, x, y + h - r, r);
-  ctx.lineTo(x, y + r);
-  ctx.arcTo(x, y, x + r, y, r);
+  if (ctx.roundRect) {
+    ctx.roundRect(x, y, width, height, radius);
+  } else {
+    ctx.moveTo(x + radius, y);
+    ctx.lineTo(x + width - radius, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+    ctx.lineTo(x + width, y + height - radius);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    ctx.lineTo(x + radius, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+    ctx.lineTo(x, y + radius);
+    ctx.quadraticCurveTo(x, y, x + radius, y);
+  }
   ctx.closePath();
+  if (fill) ctx.fill();
+  if (stroke) ctx.stroke();
 }
 
 function generateExportDataUrl(exportOri) {
@@ -8217,16 +8442,18 @@ function saveCustomFormation() {
 }
 
 function deleteCustomFormation(idx) {
-  if (!confirm('¿Seguro que quieres eliminar esta pizarra?')) return;
-  customFormations.splice(idx, 1);
-  if (currentFormation.startsWith('custom-')) {
-    currentFormation = '4-3-3';
-    document.getElementById('header-formation').textContent = '4-3-3';
-    initFieldPlayers();
-  }
-  saveData();
-  renderCustomFormations();
-  render();
+  showCustomConfirm('¿Seguro que quieres eliminar esta pizarra?', 'Eliminar pizarra').then(ok => {
+    if (!ok) return;
+    customFormations.splice(idx, 1);
+    if (currentFormation.startsWith('custom-')) {
+      currentFormation = '4-3-3';
+      document.getElementById('header-formation').textContent = '4-3-3';
+      initFieldPlayers();
+    }
+    saveData();
+    renderCustomFormations();
+    render();
+  });
 }
 
 function loadCustomFormation(idx, btn) {
@@ -9054,6 +9281,31 @@ function closeSeasonModalOutside(e) { if (e.target.id === 'season-modal-overlay'
 
 function openDrawingOptionsModal() { document.getElementById('drawing-options-modal-overlay')?.classList.add('open'); }
 function closeDrawingOptionsModal() { document.getElementById('drawing-options-modal-overlay')?.classList.remove('open'); }
+
+function openColorPickerModal() {
+  const color = drawingColor || '#ffdc32';
+  document.querySelectorAll('.color-palette-swatch').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-color').toLowerCase() === color.toLowerCase());
+  });
+  const picker = document.getElementById('modal-advanced-color-picker');
+  if (picker) picker.value = color;
+  document.getElementById('color-picker-modal-overlay')?.classList.add('open');
+}
+
+function closeColorPickerModal() {
+  document.getElementById('color-picker-modal-overlay')?.classList.remove('open');
+}
+
+function selectColorFromPalette(color) {
+  setDrawingColor(color);
+  document.querySelectorAll('.color-palette-swatch').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-color').toLowerCase() === color.toLowerCase());
+  });
+  const picker = document.getElementById('modal-advanced-color-picker');
+  if (picker && picker.value !== color) {
+    picker.value = color;
+  }
+}
 
 // ==================== REGISTRAR PARTIDO ====================
 function openMatchLogModal() {
@@ -10282,24 +10534,26 @@ function revertMatchStats(m) {
 }
 
 function deleteMatchFromHistory(matchId) {
-  if (!confirm('¿Estás seguro de que quieres eliminar este partido?\n\nSe restarán los partidos jugados, goles, asistencias y tarjetas de este encuentro a todos los jugadores que participaron.')) return;
-  
-  const matchIndex = matchHistory.findIndex(m => m.id === matchId);
-  if (matchIndex === -1) return;
-  const m = matchHistory[matchIndex];
+  showCustomConfirm('¿Estás seguro de que quieres eliminar este partido?\n\nSe restarán los partidos jugados, goles, asistencias y tarjetas de este encuentro a todos los jugadores que participaron.', 'Eliminar partido').then(ok => {
+    if (!ok) return;
+    
+    const matchIndex = matchHistory.findIndex(m => m.id === matchId);
+    if (matchIndex === -1) return;
+    const m = matchHistory[matchIndex];
 
-  saveUndoState();
+    saveUndoState();
 
-  revertMatchStats(m);
-  matchHistory.splice(matchIndex, 1);
+    revertMatchStats(m);
+    matchHistory.splice(matchIndex, 1);
 
-  updateCoachStats();
-  saveData();
-  renderMatchHistory();
-  renderSquadTable();
-  updateAnalysis();
-  
-  setTimeout(() => alert('✅ Partido eliminado y estadísticas revertidas.'), 100);
+    updateCoachStats();
+    saveData();
+    renderMatchHistory();
+    renderSquadTable();
+    updateAnalysis();
+    
+    setTimeout(() => alert('✅ Partido eliminado y estadísticas revertidas.'), 100);
+  });
 }
 
 function editMatchFromHistory(matchId) {
@@ -10358,32 +10612,35 @@ function confirmNewSeason() {
     return;
   }
 
-  if (!confirm(`Confirmar: ¿Archivar como "${oldSeasonName}" y empezar "${newSeasonName}" con estadísticas a cero?`)) return;
+  showCustomConfirm(`Confirmar: ¿Archivar como "${oldSeasonName}" y empezar "${newSeasonName}" con estadísticas a cero?`, 'Iniciar nueva temporada').then(ok => {
+    if (!ok) return;
 
-  saveUndoState();
+    saveUndoState();
 
-  pastSeasons.unshift({
-    name: oldSeasonName,
-    players: JSON.parse(JSON.stringify(players)),
-    matchHistory: JSON.parse(JSON.stringify(matchHistory)),
-    mvps: calculateSeasonMVPs(players)
+    pastSeasons.unshift({
+      name: oldSeasonName,
+      players: JSON.parse(JSON.stringify(players)),
+      matchHistory: JSON.parse(JSON.stringify(matchHistory)),
+      mvps: calculateSeasonMVPs(players)
+    });
+
+    currentSeasonName = newSeasonName;
+    matchHistory = [];
+
+    players.forEach(p => {
+      p.goals = 0; p.assists = 0; p.conceded = 0; p.cleanSheets = 0;
+      p.yellow = 0; p.red = 0; p.matches = 0; p.starts = 0; p.subs = 0;
+      p.isSuspended = false;
+      p.minutes = 0;
+    });
+
+    updateCoachStats();
+    saveData();
+    renderSeasonSelector();
+    renderSquadTable();
+    closeSeasonModal();
+    alert(`¡Nueva temporada "${currentSeasonName}" iniciada! La temporada anterior ha sido archivada.`);
   });
-
-  currentSeasonName = newSeasonName;
-  matchHistory = [];
-
-  players.forEach(p => {
-    p.goals = 0; p.assists = 0; p.conceded = 0; p.cleanSheets = 0;
-    p.yellow = 0; p.red = 0; p.matches = 0; p.starts = 0; p.subs = 0;
-    p.isSuspended = false;
-  });
-
-  updateCoachStats();
-  saveData();
-  renderSeasonSelector();
-  renderSquadTable();
-  closeSeasonModal();
-  alert(`¡Nueva temporada "${currentSeasonName}" iniciada! La temporada anterior ha sido archivada.`);
 }
 
 function renderSeasonSelector() {
@@ -12462,30 +12719,75 @@ function openAnalysisModal(type) {
         };
 
         html += `
+          <style>
+            .depth-scroll-wrapper {
+              width: 100%;
+              overflow-x: auto;
+              border-radius: 12px;
+              border: 1px solid var(--border);
+              box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+            }
+            .depth-scroll-wrapper::-webkit-scrollbar {
+              height: 8px;
+            }
+            .depth-scroll-wrapper::-webkit-scrollbar-track {
+              background: rgba(0,0,0,0.2);
+              border-radius: 4px;
+            }
+            .depth-scroll-wrapper::-webkit-scrollbar-thumb {
+              background: var(--border);
+              border-radius: 4px;
+            }
+            .depth-field {
+              position: relative;
+              padding: 24px 20px;
+              display: flex;
+              flex-direction: row;
+              gap: 12px;
+              justify-content: space-between;
+              align-items: stretch;
+              background: linear-gradient(180deg, #15803d 0%, #166534 100%);
+              min-width: 780px;
+              height: 540px;
+              box-sizing: border-box;
+            }
+            .depth-field svg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              pointer-events: none;
+              opacity: 0.35;
+              z-index: 0;
+            }
+          </style>
           <div style="font-size:12px; color:var(--text3); margin-bottom:16px; line-height:1.4;">
-             Este mapa visual interactivo muestra a todos los jugadores aptos. Los círculos con <span style="border-bottom:2px dashed var(--text2);">borde punteado</span> y tonos grisáceos indican jugadores en su posición secundaria. Haz clic sobre cualquier jugador para editar su perfil.
+             Este mapa visual interactivo muestra a todos los jugadores aptos. Los círculos con <span style="border-bottom:2px dashed var(--text2);">borde punteado</span> y tonos grisáceos indican jugadores en su posición secundaria. Haz clic sobre cualquier jugador para editar su perfil. En móvil puedes deslizar horizontalmente sobre el campo para ver todas las posiciones.
           </div>
-          <div style="position:relative; border-radius:12px; padding:24px 20px; display:flex; flex-direction:row; gap:16px; justify-content:space-between; align-items:center; background: linear-gradient(135deg, #166534 0%, #064e3b 100%); border:2px solid #047857; overflow-x:auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
-             <svg style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; opacity:0.3; z-index:0;" preserveAspectRatio="none">
-                <rect x="4%" y="4%" width="92%" height="92%" fill="none" stroke="#fff" stroke-width="2"/>
-                <line x1="50%" y1="4%" x2="50%" y2="96%" stroke="#fff" stroke-width="2"/>
-                <circle cx="50%" cy="50%" r="15%" fill="none" stroke="#fff" stroke-width="2"/>
-                <circle cx="50%" cy="50%" r="1%" fill="#fff" />
-                <rect x="4%" y="25%" width="15%" height="50%" fill="none" stroke="#fff" stroke-width="2"/>
-                <rect x="4%" y="38%" width="5%" height="24%" fill="none" stroke="#fff" stroke-width="2"/>
-                <circle cx="15%" cy="50%" r="0.5%" fill="#fff" />
-                <path d="M 19% 35% A 10% 15% 0 0 1 19% 65%" fill="none" stroke="#fff" stroke-width="2"/>
-                <rect x="81%" y="25%" width="15%" height="50%" fill="none" stroke="#fff" stroke-width="2"/>
-                <rect x="91%" y="38%" width="5%" height="24%" fill="none" stroke="#fff" stroke-width="2"/>
-                <circle cx="85%" cy="50%" r="0.5%" fill="#fff" />
-                <path d="M 81% 35% A 10% 15% 0 0 0 81% 65%" fill="none" stroke="#fff" stroke-width="2"/>
-             </svg>
-             <div style="display:flex; flex-direction:column; gap:12px; z-index:1;">${renderPosBlock('POR', posDepth.POR)}</div>
-             <div style="display:flex; flex-direction:column; gap:12px; z-index:1;">${renderPosBlock('LTI', posDepth.LTI)}${renderPosBlock('DFC', posDepth.DFC)}${renderPosBlock('LTD', posDepth.LTD)}</div>
-             <div style="display:flex; flex-direction:column; gap:12px; z-index:1;">${renderPosBlock('CAI', posDepth.CAI)}${renderPosBlock('MCD', posDepth.MCD)}${renderPosBlock('CAD', posDepth.CAD)}</div>
-             <div style="display:flex; flex-direction:column; gap:12px; z-index:1;">${renderPosBlock('MI', posDepth.MI)}${renderPosBlock('MED', posDepth.MED)}${renderPosBlock('MD', posDepth.MD)}</div>
-             <div style="display:flex; flex-direction:column; gap:12px; z-index:1;">${renderPosBlock('EXTI', posDepth.EXTI)}${renderPosBlock('MCO', posDepth.MCO)}${renderPosBlock('EXTD', posDepth.EXTD)}</div>
-             <div style="display:flex; flex-direction:column; gap:12px; z-index:1;">${renderPosBlock('DEL', posDepth.DEL)}</div>
+          <div class="depth-scroll-wrapper">
+            <div class="depth-field">
+               <svg style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; opacity:0.3; z-index:0;" preserveAspectRatio="none">
+                  <rect x="4%" y="4%" width="92%" height="92%" fill="none" stroke="#fff" stroke-width="2"/>
+                  <line x1="50%" y1="4%" x2="50%" y2="96%" stroke="#fff" stroke-width="2"/>
+                  <circle cx="50%" cy="50%" r="15%" fill="none" stroke="#fff" stroke-width="2"/>
+                  <circle cx="50%" cy="50%" r="1%" fill="#fff" />
+                  <rect x="4%" y="25%" width="15%" height="50%" fill="none" stroke="#fff" stroke-width="2"/>
+                  <rect x="4%" y="38%" width="5%" height="24%" fill="none" stroke="#fff" stroke-width="2"/>
+                  <circle cx="15%" cy="50%" r="0.5%" fill="#fff" />
+                  <path d="M 19% 35% A 10% 15% 0 0 1 19% 65%" fill="none" stroke="#fff" stroke-width="2"/>
+                  <rect x="81%" y="25%" width="15%" height="50%" fill="none" stroke="#fff" stroke-width="2"/>
+                  <rect x="91%" y="38%" width="5%" height="24%" fill="none" stroke="#fff" stroke-width="2"/>
+                  <circle cx="85%" cy="50%" r="0.5%" fill="#fff" />
+                  <path d="M 81% 35% A 10% 15% 0 0 0 81% 65%" fill="none" stroke="#fff" stroke-width="2"/>
+               </svg>
+               <div style="display:flex; flex-direction:column; justify-content:center; z-index:1;">${renderPosBlock('POR', posDepth.POR)}</div>
+               <div style="display:flex; flex-direction:column; justify-content:space-between; z-index:1;">${renderPosBlock('LTI', posDepth.LTI)}${renderPosBlock('DFC', posDepth.DFC)}${renderPosBlock('LTD', posDepth.LTD)}</div>
+               <div style="display:flex; flex-direction:column; justify-content:space-between; z-index:1;">${renderPosBlock('CAI', posDepth.CAI)}${renderPosBlock('MCD', posDepth.MCD)}${renderPosBlock('CAD', posDepth.CAD)}</div>
+               <div style="display:flex; flex-direction:column; justify-content:space-between; z-index:1;">${renderPosBlock('MI', posDepth.MI)}${renderPosBlock('MED', posDepth.MED)}${renderPosBlock('MD', posDepth.MD)}</div>
+               <div style="display:flex; flex-direction:column; justify-content:space-between; z-index:1;">${renderPosBlock('EXTI', posDepth.EXTI)}${renderPosBlock('MCO', posDepth.MCO)}${renderPosBlock('EXTD', posDepth.EXTD)}</div>
+               <div style="display:flex; flex-direction:column; justify-content:center; z-index:1;">${renderPosBlock('DEL', posDepth.DEL)}</div>
+            </div>
           </div>
         `;
     }
@@ -12497,6 +12799,17 @@ function openAnalysisModal(type) {
 
 function closeAnalysisModal() { document.getElementById('analysis-modal-overlay').classList.remove('open'); }
 function closeAnalysisModalOutside(e) { if (e.target.id === 'analysis-modal-overlay') closeAnalysisModal(); }
+
+function openBestElevenModal() {
+  document.getElementById('best-eleven-modal-overlay').classList.add('open');
+  generateBestEleven();
+}
+function closeBestElevenModal() {
+  document.getElementById('best-eleven-modal-overlay').classList.remove('open');
+}
+function closeBestElevenModalOutside(e) {
+  if (e.target.id === 'best-eleven-modal-overlay') closeBestElevenModal();
+}
 
 // ==================== MODAL ====================
 let modalInitialYellow = 0;
@@ -12975,20 +13288,12 @@ function saveEdit() {
   closeModal();
 }
 
-function exportSquadCSV() {
+function doExportSquadCSV(filtered) {
   let csv = '\uFEFF'; // BOM para asegurar que Excel reconozca los acentos en UTF-8
   const separator = ';'; // Punto y coma evita problemas de formato en el Excel europeo
   
   const headers = ['Dorsal', 'Jugador', 'Nacionalidad', 'Posición', 'Otras Posiciones', 'Edad', 'Pie', 'Estado', 'Contrato', 'Goles', 'Asistencias', 'G. Encajados', 'Porterías a 0', 'Amarillas', 'Rojas', 'Partidos', 'Titular', 'Suplente', 'Valor (M€)'];
   csv += headers.join(separator) + '\n';
-  
-  const filtered = getFilteredPlayers();
-
-  if (players.length !== filtered.length) {
-    if (!confirm(`Hay filtros activos. El CSV solo incluirá a los ${filtered.length} jugadores visibles.\n\n¿Deseas continuar con la exportación filtrada?\n\n(Para exportar la plantilla completa, desactiva los filtros primero).`)) {
-      return;
-    }
-  }
   
   const sorted = [...filtered].sort((a, b) => {
     if (sortKey === 'pos') {
@@ -13048,6 +13353,38 @@ function exportSquadCSV() {
   URL.revokeObjectURL(url);
 }
 
+function exportSquadCSV() {
+  const filtered = getFilteredPlayers();
+
+  if (players.length !== filtered.length) {
+    showCustomConfirm(`Hay filtros activos. El CSV solo incluirá a los ${filtered.length} jugadores visibles.\n\n¿Deseas continuar con la exportación filtrada?\n\n(Para exportar la plantilla completa, desactiva los filtros primero).`, 'Exportar CSV con filtros').then(ok => {
+      if (!ok) return;
+      doExportSquadCSV(filtered);
+    });
+  } else {
+    doExportSquadCSV(filtered);
+  }
+}
+
+function downloadCSVTemplate() {
+  const headers = ['Dorsal', 'Jugador', 'Nacionalidad', 'Posición', 'Otras Posiciones', 'Edad', 'Pie', 'Estado', 'Contrato', 'Goles', 'Asistencias', 'G. Encajados', 'Porterías a 0', 'Amarillas', 'Rojas', 'Partidos', 'Titular', 'Suplente', 'Valor (M€)'];
+  const sampleRow = ['10', 'Lionel Messi', 'Argentina', 'MCO', 'DEL, ED', '38', 'Zurdo', 'Activo', 'Propiedad', '12', '8', '', '', '1', '0', '15', '14', '1', '4.5'];
+  const separator = ';';
+  let csv = '\uFEFF'; // BOM para asegurar caracteres UTF-8 en Excel
+  csv += headers.join(separator) + '\n';
+  csv += sampleRow.join(separator) + '\n';
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'Plantilla_Importar_Jugadores.csv';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
 function parseCSVRow(text, separator) {
   let result = [];
   let current = '';
@@ -13084,49 +13421,49 @@ function importSquadCSV(e) {
         return;
       }
 
-      const replace = confirm('¿Deseas REEMPLAZAR la plantilla actual con los datos del CSV?\n\nAceptar = Borrar plantilla actual y cargar la nueva.\nCancelar = Añadir los jugadores del CSV a la plantilla existente.');
-      
-      saveUndoState();
-      if (replace) players = [];
+      showCustomConfirm('¿Deseas REEMPLAZAR la plantilla actual con los datos del CSV?\n\nAceptar = Borrar plantilla actual y cargar la nueva.\nCancelar = Añadir los jugadores del CSV a la plantilla existente.', 'Importar CSV').then(replace => {
+        saveUndoState();
+        if (replace) players = [];
 
-      for (let i = 1; i < lines.length; i++) {
-        const line = lines[i].trim();
-        if (!line) continue;
-        
-        const cols = parseCSVRow(line, ';');
-        if (cols.length < 4) continue; // Mínimo dorsal, nombre, nac, pos
+        for (let i = 1; i < lines.length; i++) {
+          const line = lines[i].trim();
+          if (!line) continue;
+          
+          const cols = parseCSVRow(line, ';');
+          if (cols.length < 4) continue; // Mínimo dorsal, nombre, nac, pos
 
-        let rawName = cols[1] || '';
-        let isCap = false;
-        if (rawName.endsWith(' (C)')) { isCap = true; rawName = rawName.replace(' (C)', ''); }
+          let rawName = cols[1] || '';
+          let isCap = false;
+          if (rawName.endsWith(' (C)')) { isCap = true; rawName = rawName.replace(' (C)', ''); }
 
-        let footCode = 'D';
-        if (cols[6] === 'Zurdo') footCode = 'I'; else if (cols[6] === 'Ambidiestro') footCode = 'A';
+          let footCode = 'D';
+          if (cols[6] === 'Zurdo') footCode = 'I'; else if (cols[6] === 'Ambidiestro') footCode = 'A';
 
-        let isInjured = false;
-        let isSuspended = false;
-        if (cols[7]) {
-            if (cols[7].includes('Lesionado')) isInjured = true;
-            if (cols[7].includes('Sancionado')) isSuspended = true;
+          let isInjured = false;
+          let isSuspended = false;
+          if (cols[7]) {
+              if (cols[7].includes('Lesionado')) isInjured = true;
+              if (cols[7].includes('Sancionado')) isSuspended = true;
+          }
+
+          let loanCode = 'none';
+          if (cols[8] === 'Cedido aqui') loanCode = 'in'; else if (cols[8] === 'Cedido fuera') loanCode = 'out';
+
+          let altPosArray = cols[4] ? cols[4].split(',').map(s => s.trim()).filter(Boolean) : [];
+
+          const p = {
+            id: generateUUID(), num: parseInt(cols[0]) || 0, name: rawName, nationality: cols[2] || '', pos: cols[3] || 'MED',
+            altPos: altPosArray, age: parseInt(cols[5]) || null, foot: footCode, isInjured: isInjured, isSuspended: isSuspended, loan: loanCode,
+            goals: parseInt(cols[9]) || 0, assists: parseInt(cols[10]) || 0, conceded: parseInt(cols[11]) || 0, cleanSheets: parseInt(cols[12]) || 0,
+            yellow: parseInt(cols[13]) || 0, red: parseInt(cols[14]) || 0, matches: parseInt(cols[15]) || 0, starts: parseInt(cols[16]) || 0,
+            subs: parseInt(cols[17]) || 0, isCaptain: isCap, value: cols[18] !== undefined && cols[18] !== '' ? parseFloat(cols[18]) : null
+          };
+          players.push(p);
         }
 
-        let loanCode = 'none';
-        if (cols[8] === 'Cedido aqui') loanCode = 'in'; else if (cols[8] === 'Cedido fuera') loanCode = 'out';
-
-        let altPosArray = cols[4] ? cols[4].split(',').map(s => s.trim()).filter(Boolean) : [];
-
-        const p = {
-          id: generateUUID(), num: parseInt(cols[0]) || 0, name: rawName, nationality: cols[2] || '', pos: cols[3] || 'MED',
-          altPos: altPosArray, age: parseInt(cols[5]) || null, foot: footCode, isInjured: isInjured, isSuspended: isSuspended, loan: loanCode,
-          goals: parseInt(cols[9]) || 0, assists: parseInt(cols[10]) || 0, conceded: parseInt(cols[11]) || 0, cleanSheets: parseInt(cols[12]) || 0,
-          yellow: parseInt(cols[13]) || 0, red: parseInt(cols[14]) || 0, matches: parseInt(cols[15]) || 0, starts: parseInt(cols[16]) || 0,
-          subs: parseInt(cols[17]) || 0, isCaptain: isCap, value: cols[18] !== undefined && cols[18] !== '' ? parseFloat(cols[18]) : null
-        };
-        players.push(p);
-      }
-
-      initFieldPlayers(); saveData(); renderSquadTable(); render(); updateAnalysis();
-      alert('Plantilla importada correctamente desde el CSV.');
+        initFieldPlayers(); saveData(); renderSquadTable(); render(); updateAnalysis();
+        alert('Plantilla importada correctamente desde el CSV.');
+      });
     } catch (err) { console.error(err); alert('Error al procesar el archivo CSV.'); }
     e.target.value = ''; // Reset input
   };
@@ -13275,7 +13612,8 @@ function processTmText() {
     return;
   }
 
-  if (confirm(`✅ Se han detectado y extraído ${parsedCount} jugadores con éxito.\n\n¿Deseas añadirlos a la plantilla actual?`)) {
+  showCustomConfirm(`✅ Se han detectado y extraído ${parsedCount} jugadores con éxito.\n\n¿Deseas añadirlos a la plantilla actual?`, 'Importar jugadores').then(ok => {
+    if (!ok) return;
     saveUndoState();
     players = players.concat(newPlayers);
     initFieldPlayers();
@@ -13284,7 +13622,7 @@ function processTmText() {
     render();
     updateAnalysis();
     closeTmImportModal();
-  }
+  });
 }
 
 function copySquadList() {
@@ -13321,9 +13659,11 @@ function exportToPDF() {
   const { jsPDF } = window.jspdf;
 
   const previewPDF = (doc) => {
-      const blob = doc.output('blob');
-      window.open(URL.createObjectURL(blob), '_blank');
+      const sanitizedTeam = (teamName || 'Equipo').replace(/\s+/g, '_');
+      const filename = `Informe_${currentPreviewType || 'App'}_${sanitizedTeam}_${new Date().toISOString().slice(0,10)}.pdf`;
+      doc.save(filename);
       setTimeout(closePreviewModal, 300);
+      showToast('✅ PDF descargado correctamente', 'success');
   };
 
   const cleanText = (str) => {
@@ -14078,26 +14418,26 @@ function restoreFromPoint(idx) {
   const p = points[idx];
   if (!p) return;
   
-  if (!confirm(`¿Estás seguro de que deseas restaurar la aplicación al punto de restauración "${p.description}" (${new Date(p.timestamp).toLocaleString('es-ES')})?\n\nSe sobrescribirán todos los equipos actuales.`)) {
-    return;
-  }
-  
-  addAutoBackupPoint('Pre-restauración');
-  
-  appData = p.appData;
-  setLocalStorage('tacticaProAppData_v2', JSON.stringify(appData));
-  
-  if (activeTeamId && appData.teams.some(t => t.id === activeTeamId)) {
-    selectTeam(activeTeamId);
-  } else if (appData.teams.length > 0) {
-    selectTeam(appData.teams[0].id);
-  } else {
-    activeTeamId = null;
-    showMainMenu();
-  }
-  
-  alert('Punto de restauración cargado correctamente.');
-  closeCustomizationModal();
+  showCustomConfirm(`¿Estás seguro de que deseas restaurar la aplicación al punto de restauración "${p.description}" (${new Date(p.timestamp).toLocaleString('es-ES')})?\n\nSe sobrescribirán todos los equipos actuales.`, 'Restaurar punto').then(ok => {
+    if (!ok) return;
+    
+    addAutoBackupPoint('Pre-restauración');
+    
+    appData = p.appData;
+    setLocalStorage('tacticaProAppData_v2', JSON.stringify(appData));
+    
+    if (activeTeamId && appData.teams.some(t => t.id === activeTeamId)) {
+      selectTeam(activeTeamId);
+    } else if (appData.teams.length > 0) {
+      selectTeam(appData.teams[0].id);
+    } else {
+      activeTeamId = null;
+      showMainMenu();
+    }
+    
+    alert('Punto de restauración cargado correctamente.');
+    closeCustomizationModal();
+  });
 }
 
 function openCustomizationModal() {
@@ -14160,27 +14500,30 @@ function exportFullBackup() {
 function importFullBackup(event) {
   const file = event.target.files[0];
   if (!file) return;
-  if (!confirm('¿Importar este backup? Los datos actuales que coincidan serán REEMPLAZADOS.')) {
-    event.target.value = '';
-    return;
-  }
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    try {
-      const data = JSON.parse(e.target.result);
-      let count = 0;
-      for (const [key, value] of Object.entries(data)) {
-        localStorage.setItem(key, value);
-        count++;
-      }
-      showToast(`✅ Backup importado: ${count} registros restaurados. Recargando...`);
-      setTimeout(() => location.reload(), 1500);
-    } catch(err) {
-      showToast('❌ Error al importar: archivo JSON inválido');
+
+  showCustomConfirm('¿Importar este backup? Los datos actuales que coincidan serán REEMPLAZADOS.', 'Importar copia de seguridad completa').then(ok => {
+    if (!ok) {
+      event.target.value = '';
+      return;
     }
-  };
-  reader.readAsText(file);
-  event.target.value = '';
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        let count = 0;
+        for (const [key, value] of Object.entries(data)) {
+          localStorage.setItem(key, value);
+          count++;
+        }
+        showToast(`✅ Backup importado: ${count} registros restaurados. Recargando...`);
+        setTimeout(() => location.reload(), 1500);
+      } catch(err) {
+        showToast('❌ Error al importar: archivo JSON inválido');
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
+  });
 }
 
 function saveCoachEdit() {
@@ -14236,14 +14579,7 @@ function initAppDOM() {
   if (mainMenuOverlay) {
     mainMenuOverlay.addEventListener('click', (event) => { if(event.target.id === 'main-menu-overlay') closeMainMenu(); });
   }
-  const bestElevenCard = document.getElementById('best-eleven-card');
-  if (bestElevenCard) {
-    bestElevenCard.addEventListener('toggle', function() {
-      if (this.open) {
-        generateBestEleven();
-      }
-    });
-  }
+
   if (typeof drawingWeight !== 'undefined') {
     setBrushWeight(drawingWeight);
   }
@@ -14252,6 +14588,15 @@ function initAppDOM() {
   }
   const autodetectChk = document.getElementById('drawing-autodetect-checkbox');
   if (autodetectChk) autodetectChk.checked = autoDetectShapes;
+
+  const fillChk = document.getElementById('drawing-fill-checkbox');
+  if (fillChk) fillChk.checked = fillShapesEnabled;
+  const sidebarFillChk = document.getElementById('drawing-fill-sidebar');
+  if (sidebarFillChk) sidebarFillChk.checked = fillShapesEnabled;
+
+  if (typeof drawingColor !== 'undefined') {
+    setDrawingColor(drawingColor);
+  }
 }
 
 if (document.readyState === 'loading') {
@@ -14637,30 +14982,45 @@ window.addEventListener('keydown', function(e) {
       const key = e.key.toUpperCase();
       switch(key) {
         case 'P':
-
-      e.preventDefault();
-      setTool('free');
-      break;
-    case 'F':
-      e.preventDefault();
-      setTool('arrow');
-      break;
-    case 'T':
-      e.preventDefault();
-      setTool('text');
-      break;
-    case 'E':
-      e.preventDefault();
-      setTool('eraser');
-      break;
-    case 'C':
-      e.preventDefault();
-      showCustomConfirm('¿Quieres limpiar todos los dibujos del campo?', 'Limpiar pizarra').then(ok => {
-        if (ok) {
-          clearArrows();
-        }
-      });
-      break;
+          e.preventDefault();
+          setTool('free');
+          break;
+        case 'F':
+          e.preventDefault();
+          setTool('arrow');
+          break;
+        case 'V':
+          e.preventDefault();
+          setTool('curved_arrow');
+          break;
+        case 'L':
+          e.preventDefault();
+          setTool('line');
+          break;
+        case 'O':
+          e.preventDefault();
+          setTool('circle');
+          break;
+        case 'R':
+          e.preventDefault();
+          setTool('rect');
+          break;
+        case 'T':
+          e.preventDefault();
+          setTool('text');
+          break;
+        case 'E':
+          e.preventDefault();
+          setTool('eraser');
+          break;
+        case 'C':
+          e.preventDefault();
+          showCustomConfirm('¿Quieres limpiar todos los dibujos del campo?', 'Limpiar pizarra').then(ok => {
+            if (ok) {
+              clearArrows();
+            }
+          });
+          break;
         case '1':
           e.preventDefault();
           setBrushWeight(2.0);
@@ -14677,7 +15037,7 @@ window.addEventListener('keydown', function(e) {
           e.preventDefault();
           setBrushWeight(8.0);
           break;
-  }
+      }
 });
 
 function setBrushWeight(weight) {
@@ -14729,16 +15089,49 @@ function generateBestEleven() {
   }
 
   const selectedFmn = document.getElementById('best-eleven-formation')?.value || '4-3-3';
+  const useValue = document.getElementById('best-eleven-use-value')?.checked || false;
+
+  // 1. Encontrar el máximo de minutos jugados para la ponderación de participación
+  const maxMinutes = Math.max(...activePlayers.map(p => p.minutes || 0), 90);
 
   const getPlayerScore = p => {
+    // Si ha jugado menos de 90 minutos, se penaliza fuertemente para evitar sesgos por muestras pequeñas
+    if ((p.minutes || 0) < 90) return -9999;
+
     const matches = p.matches || 0;
+    if (matches === 0) return -9999;
+
+    // Normalización de estadísticas por cada 90 minutos de juego real
+    const minutes90 = Math.max(90, p.minutes || 90) / 90;
+    const cleanSheets90 = (p.cleanSheets || 0) / minutes90;
+    const conceded90 = (p.conceded || 0) / minutes90;
+    const goals90 = (p.goals || 0) / minutes90;
+    const assists90 = (p.assists || 0) / minutes90;
+    const yellow90 = (p.yellow || 0) / minutes90;
+    const red90 = (p.red || 0) / minutes90;
+
+    let baseSportScore = 0;
+
     if (p.pos === 'POR') {
-      if (matches === 0) return -999 + (p.value || 0);
-      return (((p.cleanSheets || 0) * 2.5 - (p.conceded || 0) * 0.8) / matches) * 10 + (p.value || 0);
-    } else {
-      if (matches === 0) return -999 + (p.value || 0);
-      return (((p.goals || 0) * 1.5 + (p.assists || 0) * 1.0) / matches) * 10 + (p.value || 0);
+      baseSportScore = (cleanSheets90 * 3.0) - (conceded90 * 0.8) - (yellow90 * 1.0) - (red90 * 5.0);
+    } else if (['DFC', 'LTI', 'LTD', 'CAI', 'CAD'].includes(p.pos)) {
+      baseSportScore = (cleanSheets90 * 1.5) - (conceded90 * 0.2) + (goals90 * 1.0) + (assists90 * 0.8) - (yellow90 * 1.0) - (red90 * 5.0);
+    } else if (['MCD', 'MED', 'MCO', 'MI', 'MD'].includes(p.pos)) {
+      baseSportScore = (goals90 * 1.2) + (assists90 * 2.0) - (yellow90 * 1.0) - (red90 * 5.0);
+    } else { // DEL, DC, EXTI, EXTD, EI, ED
+      baseSportScore = (goals90 * 2.5) + (assists90 * 1.5) - (yellow90 * 1.0) - (red90 * 5.0);
     }
+
+    // Ponderación de participación: premia la regularidad y los minutos en el campo
+    const participationWeight = (p.minutes || 0) / maxMinutes;
+    // 30% fijo mínimo de puntaje base de rendimiento + 70% escalado por participación
+    const finalSportScore = baseSportScore * (0.3 + 0.7 * participationWeight);
+
+    // Sumar valor de mercado si la opción está activa
+    if (useValue) {
+      return finalSportScore + (parseFloat(p.value) || 0);
+    }
+    return finalSportScore;
   };
 
   const sortedPlayers = [...activePlayers].sort((a, b) => getPlayerScore(b) - getPlayerScore(a));
@@ -14747,13 +15140,13 @@ function generateBestEleven() {
     '4-3-3': {
       coords: [
         { left: '50%', bottom: '10%', label: 'POR' },
-        { left: '15%', bottom: '22%', label: 'LTI' },
+        { left: '15%', bottom: '28%', label: 'LTI' },
         { left: '35%', bottom: '20%', label: 'DFC' },
         { left: '65%', bottom: '20%', label: 'DFC' },
-        { left: '85%', bottom: '22%', label: 'LTD' },
-        { left: '30%', bottom: '50%', label: 'MED' },
+        { left: '85%', bottom: '28%', label: 'LTD' },
+        { left: '32%', bottom: '48%', label: 'MCD' },
         { left: '50%', bottom: '38%', label: 'MED' },
-        { left: '70%', bottom: '50%', label: 'MED' },
+        { left: '68%', bottom: '48%', label: 'MCO' },
         { left: '18%', bottom: '78%', label: 'EI' },
         { left: '50%', bottom: '90%', label: 'DC' },
         { left: '82%', bottom: '78%', label: 'ED' }
@@ -14764,16 +15157,16 @@ function generateBestEleven() {
         p => p.pos === 'DFC',
         p => p.pos === 'DFC',
         p => p.pos === 'LTD' || p.pos === 'CAD',
-        p => ['MCD','MED','MCO','MI','MD'].includes(p.pos),
-        p => ['MCD','MED','MCO','MI','MD'].includes(p.pos),
-        p => ['MCD','MED','MCO','MI','MD'].includes(p.pos),
+        p => ['MCD'].includes(p.pos),
+        p => ['MED'].includes(p.pos),
+        p => ['MCO'].includes(p.pos),
         p => ['EXTI', 'MI', 'EI'].includes(p.pos),
         p => ['DEL', 'DC'].includes(p.pos),
         p => ['EXTD', 'MD', 'ED'].includes(p.pos)
       ],
       altKeys: [
         ['POR'], ['LTI', 'CAI'], ['DFC'], ['DFC'], ['LTD', 'CAD'],
-        ['MCD','MED','MCO','MI','MD'], ['MCD','MED','MCO','MI','MD'], ['MCD','MED','MCO','MI','MD'],
+        ['MCD', 'MED'], ['MED', 'MCD', 'MCO'], ['MCO', 'MED'],
         ['EXTI', 'MI', 'EI'], ['DEL', 'DC'], ['EXTD', 'MD', 'ED']
       ],
       fallbacks: [
@@ -14782,23 +15175,23 @@ function generateBestEleven() {
         p => ['DFC', 'LTI', 'LTD'].includes(p.pos),
         p => ['DFC', 'LTI', 'LTD'].includes(p.pos),
         p => ['LTD', 'DFC', 'LTI', 'CAD', 'CAI'].includes(p.pos),
-        p => ['MCD','MED','MCO','MI','MD'].includes(p.pos),
-        p => ['MCD','MED','MCO','MI','MD'].includes(p.pos),
-        p => ['MCD','MED','MCO','MI','MD'].includes(p.pos),
-        p => ['EXTI', 'MI', 'DEL', 'MCO'].includes(p.pos),
-        p => ['DEL', 'EXTI', 'EXTD', 'MCO'].includes(p.pos),
-        p => ['EXTD', 'MD', 'DEL', 'MCO'].includes(p.pos)
+        p => ['MCD', 'MED', 'MCO', 'MI', 'MD'].includes(p.pos),
+        p => ['MED', 'MCD', 'MCO', 'MI', 'MD'].includes(p.pos),
+        p => ['MCO', 'MED', 'MCD', 'MI', 'MD'].includes(p.pos),
+        p => ['EXTI', 'MI', 'EI', 'DEL', 'MCO'].includes(p.pos),
+        p => ['DEL', 'DC', 'EXTI', 'EXTD', 'MCO'].includes(p.pos),
+        p => ['EXTD', 'MD', 'ED', 'DEL', 'MCO'].includes(p.pos)
       ]
     },
     '4-4-2': {
       coords: [
         { left: '50%', bottom: '10%', label: 'POR' },
-        { left: '15%', bottom: '22%', label: 'LTI' },
+        { left: '15%', bottom: '28%', label: 'LTI' },
         { left: '35%', bottom: '20%', label: 'DFC' },
         { left: '65%', bottom: '20%', label: 'DFC' },
-        { left: '85%', bottom: '22%', label: 'LTD' },
+        { left: '85%', bottom: '28%', label: 'LTD' },
         { left: '15%', bottom: '52%', label: 'MI' },
-        { left: '35%', bottom: '48%', label: 'MED' },
+        { left: '35%', bottom: '48%', label: 'MCD' },
         { left: '65%', bottom: '48%', label: 'MED' },
         { left: '85%', bottom: '52%', label: 'MD' },
         { left: '35%', bottom: '90%', label: 'DC' },
@@ -14811,16 +15204,16 @@ function generateBestEleven() {
         p => p.pos === 'DFC',
         p => p.pos === 'LTD' || p.pos === 'CAD',
         p => ['MI', 'EXTI'].includes(p.pos),
-        p => ['MED', 'MCD', 'MCO'].includes(p.pos),
-        p => ['MED', 'MCD', 'MCO'].includes(p.pos),
+        p => ['MCD', 'MED'].includes(p.pos),
+        p => ['MED', 'MCO'].includes(p.pos),
         p => ['MD', 'EXTD'].includes(p.pos),
         p => ['DEL', 'DC'].includes(p.pos),
         p => ['DEL', 'DC'].includes(p.pos)
       ],
       altKeys: [
         ['POR'], ['LTI', 'CAI'], ['DFC'], ['DFC'], ['LTD', 'CAD'],
-        ['MI', 'EXTI'], ['MED', 'MCD', 'MCO'], ['MED', 'MCD', 'MCO'],
-        ['MD', 'EXTD'], ['DEL', 'DC'], ['DEL', 'DC']
+        ['MI', 'EXTI'], ['MCD', 'MED'], ['MED', 'MCO'], ['MD', 'EXTD'],
+        ['DEL', 'DC'], ['DEL', 'DC']
       ],
       fallbacks: [
         null,
@@ -14829,7 +15222,7 @@ function generateBestEleven() {
         p => ['DFC', 'LTI', 'LTD'].includes(p.pos),
         p => ['LTD', 'DFC', 'LTI', 'CAD', 'CAI'].includes(p.pos),
         p => ['MI', 'EXTI', 'MCO', 'MED'].includes(p.pos),
-        p => ['MED', 'MCD', 'MCO'].includes(p.pos),
+        p => ['MCD', 'MED', 'MCO'].includes(p.pos),
         p => ['MED', 'MCD', 'MCO'].includes(p.pos),
         p => ['MD', 'EXTD', 'MCO', 'MED'].includes(p.pos),
         p => ['DEL', 'DC', 'EXTI', 'EXTD'].includes(p.pos),
@@ -14845,7 +15238,7 @@ function generateBestEleven() {
         { left: '15%', bottom: '52%', label: 'CAI' },
         { left: '35%', bottom: '48%', label: 'MCD' },
         { left: '50%', bottom: '38%', label: 'MED' },
-        { left: '65%', bottom: '48%', label: 'MED' },
+        { left: '65%', bottom: '48%', label: 'MCO' },
         { left: '85%', bottom: '52%', label: 'CAD' },
         { left: '35%', bottom: '90%', label: 'DC' },
         { left: '65%', bottom: '90%', label: 'DC' }
@@ -14855,29 +15248,29 @@ function generateBestEleven() {
         p => p.pos === 'DFC',
         p => p.pos === 'DFC',
         p => p.pos === 'DFC',
-        p => ['LTI', 'CAI', 'MI', 'EXTI'].includes(p.pos),
+        p => ['CAI', 'LTI', 'MI', 'EXTI'].includes(p.pos),
         p => ['MCD', 'MED'].includes(p.pos),
-        p => ['MED', 'MCO'].includes(p.pos),
-        p => ['MED', 'MCO'].includes(p.pos),
-        p => ['LTD', 'CAD', 'MD', 'EXTD'].includes(p.pos),
+        p => ['MED'].includes(p.pos),
+        p => ['MCO', 'MED'].includes(p.pos),
+        p => ['CAD', 'LTD', 'MD', 'EXTD'].includes(p.pos),
         p => ['DEL', 'DC'].includes(p.pos),
         p => ['DEL', 'DC'].includes(p.pos)
       ],
       altKeys: [
         ['POR'], ['DFC'], ['DFC'], ['DFC'],
-        ['LTI', 'CAI', 'MI', 'EXTI'], ['MCD', 'MED'], ['MED', 'MCO'], ['MED', 'MCO'],
-        ['LTD', 'CAD', 'MD', 'EXTD'], ['DEL', 'DC'], ['DEL', 'DC']
+        ['CAI', 'LTI', 'MI', 'EXTI'], ['MCD', 'MED'], ['MED'], ['MCO', 'MED'],
+        ['CAD', 'LTD', 'MD', 'EXTD'], ['DEL', 'DC'], ['DEL', 'DC']
       ],
       fallbacks: [
         null,
         p => ['DFC', 'LTI', 'LTD'].includes(p.pos),
         p => ['DFC', 'LTI', 'LTD'].includes(p.pos),
         p => ['DFC', 'LTI', 'LTD'].includes(p.pos),
-        p => ['LTI', 'CAI', 'MI', 'DFC'].includes(p.pos),
+        p => ['CAI', 'LTI', 'MI', 'DFC'].includes(p.pos),
         p => ['MCD', 'MED', 'MCO'].includes(p.pos),
         p => ['MED', 'MCD', 'MCO'].includes(p.pos),
-        p => ['MED', 'MCD', 'MCO'].includes(p.pos),
-        p => ['LTD', 'CAD', 'MD', 'DFC'].includes(p.pos),
+        p => ['MCO', 'MED', 'MCD'].includes(p.pos),
+        p => ['CAD', 'LTD', 'MD', 'DFC'].includes(p.pos),
         p => ['DEL', 'DC', 'EXTI', 'EXTD'].includes(p.pos),
         p => ['DEL', 'DC', 'EXTI', 'EXTD'].includes(p.pos)
       ]
@@ -14885,16 +15278,16 @@ function generateBestEleven() {
     '4-2-3-1': {
       coords: [
         { left: '50%', bottom: '10%', label: 'POR' },
-        { left: '15%', bottom: '22%', label: 'LTI' },
+        { left: '15%', bottom: '28%', label: 'LTI' },
         { left: '35%', bottom: '20%', label: 'DFC' },
         { left: '65%', bottom: '20%', label: 'DFC' },
-        { left: '85%', bottom: '22%', label: 'LTD' },
+        { left: '85%', bottom: '28%', label: 'LTD' },
         { left: '35%', bottom: '38%', label: 'MCD' },
         { left: '65%', bottom: '38%', label: 'MCD' },
-        { left: '50%', bottom: '78%', label: 'MCO' },
-        { left: '15%', bottom: '78%', label: 'MI' },
+        { left: '50%', bottom: '68%', label: 'MCO' },
+        { left: '15%', bottom: '68%', label: 'MI' },
         { left: '50%', bottom: '90%', label: 'DC' },
-        { left: '85%', bottom: '78%', label: 'MD' }
+        { left: '85%', bottom: '68%', label: 'MD' }
       ],
       filters: [
         p => p.pos === 'POR',
@@ -14902,17 +15295,17 @@ function generateBestEleven() {
         p => p.pos === 'DFC',
         p => p.pos === 'DFC',
         p => p.pos === 'LTD' || p.pos === 'CAD',
+        p => ['MCD'].includes(p.pos),
         p => ['MCD', 'MED'].includes(p.pos),
-        p => ['MCD', 'MED'].includes(p.pos),
-        p => ['MCO', 'MED'].includes(p.pos),
-        p => ['MI', 'EXTI', 'MCO'].includes(p.pos),
+        p => ['MCO'].includes(p.pos),
+        p => ['MI', 'EXTI'].includes(p.pos),
         p => ['DEL', 'DC'].includes(p.pos),
-        p => ['MD', 'EXTD', 'MCO'].includes(p.pos)
+        p => ['MD', 'EXTD'].includes(p.pos)
       ],
       altKeys: [
         ['POR'], ['LTI', 'CAI'], ['DFC'], ['DFC'], ['LTD', 'CAD'],
-        ['MCD', 'MED'], ['MCD', 'MED'], ['MCO', 'MED'],
-        ['MI', 'EXTI', 'MCO'], ['DEL', 'DC'], ['MD', 'EXTD', 'MCO']
+        ['MCD'], ['MCD', 'MED'], ['MCO'],
+        ['MI', 'EXTI'], ['DEL', 'DC'], ['MD', 'EXTD']
       ],
       fallbacks: [
         null,
@@ -14984,6 +15377,48 @@ function generateBestEleven() {
     return;
   }
 
+  // --- Calcular e inyectar KPIs del Once Ideal ---
+  let totalValueBest = 0;
+  let totalAgeBest = 0;
+  let totalGoalsBest = 0;
+  let totalAssistsBest = 0;
+  let starPlayer = null;
+  let maxBestScore = -99999;
+
+  for (let slot = 0; slot < 11; slot++) {
+    const p = selected[slot];
+    if (p) {
+      totalValueBest += parseFloat(p.value) || 0;
+      totalAgeBest += parseInt(p.age) || 22;
+      totalGoalsBest += parseInt(p.goals) || 0;
+      totalAssistsBest += parseInt(p.assists) || 0;
+
+      const pScore = getPlayerScore(p);
+      if (pScore > maxBestScore) {
+        maxBestScore = pScore;
+        starPlayer = p;
+      }
+    }
+  }
+
+  const avgAgeBest = (totalAgeBest / 11).toFixed(1);
+
+  const valEl = document.getElementById('kpi-best-value');
+  const ageEl = document.getElementById('kpi-best-age');
+  const statsEl = document.getElementById('kpi-best-stats');
+  const starEl = document.getElementById('kpi-best-star');
+  const kpisContainer = document.getElementById('best-eleven-kpis');
+
+  if (valEl) valEl.textContent = `€${totalValueBest.toFixed(1).replace(/\.0$/, '')}M`;
+  if (ageEl) ageEl.textContent = `${avgAgeBest} a.`;
+  if (statsEl) statsEl.textContent = `${totalGoalsBest} G / ${totalAssistsBest} A`;
+  if (starEl) {
+    const nameStr = starPlayer ? starPlayer.name : '-';
+    starEl.textContent = nameStr;
+    starEl.setAttribute('title', nameStr);
+  }
+  if (kpisContainer) kpisContainer.style.display = 'grid';
+
   const container = document.getElementById('mini-pitch-players');
   if (!container) return;
   container.innerHTML = '';
@@ -15017,13 +15452,13 @@ function generateBestEleven() {
     `;
 
     playerEl.innerHTML = `
-      <div class="mini-jersey" style="position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); width: 28px; height: 28px; border-radius: 50%; background: ${jerseyColor}; color: ${textColor}; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+      <div class="mini-jersey" style="position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%; background: ${jerseyColor}; color: ${textColor}; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
         ${p.num}
-        <span style="position: absolute; top: -6px; right: -8px; background: rgba(0,0,0,0.7); color: white; font-size: 7px; padding: 1px 3px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); font-weight: 700;">${coords.label}</span>
+        <span style="position: absolute; top: -6px; right: -10px; background: rgba(0,0,0,0.7); color: white; font-size: 8px; padding: 1px 4px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); font-weight: 700;">${coords.label}</span>
       </div>
-      <div style="position: absolute; left: 0; top: 16px; transform: translateX(-50%); background: rgba(15, 23, 42, 0.96); border: 1px solid rgba(255,255,255,0.15); padding: 3.5px 8px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); white-space: nowrap; pointer-events: none; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style="font-size: 9px; color: white; font-weight: 700; line-height: 1.2;">${escapeHTML(p.name)}</div>
-        <div style="font-size: 8px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 1px; line-height: 1.1;">${statsInfo}</div>
+      <div style="position: absolute; left: 0; top: 21px; transform: translateX(-50%); background: rgba(15, 23, 42, 0.96); border: 1px solid rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); white-space: nowrap; pointer-events: none; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div style="font-size: 10.5px; color: white; font-weight: 700; line-height: 1.2;">${escapeHTML(p.name)}</div>
+        <div style="font-size: 9px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 1px; line-height: 1.1;">${statsInfo}</div>
       </div>
     `;
     container.appendChild(playerEl);
@@ -15042,25 +15477,6 @@ function generateBestEleven() {
   }
 }
 
-function drawRoundRect(ctx, x, y, width, height, radius, fill, stroke) {
-  ctx.beginPath();
-  if (ctx.roundRect) {
-    ctx.roundRect(x, y, width, height, radius);
-  } else {
-    ctx.moveTo(x + radius, y);
-    ctx.lineTo(x + width - radius, y);
-    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-    ctx.lineTo(x + width, y + height - radius);
-    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-    ctx.lineTo(x + radius, y + height);
-    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-    ctx.lineTo(x, y + radius);
-    ctx.quadraticCurveTo(x, y, x + radius, y);
-  }
-  ctx.closePath();
-  if (fill) ctx.fill();
-  if (stroke) ctx.stroke();
-}
 
 function exportBestElevenImage() {
   if (!lastBestEleven || !lastBestElevenFormation) {
@@ -15215,25 +15631,25 @@ function exportBestElevenImage() {
   const coordsMap = {
     '4-3-3': [
       { left: '50%', bottom: '10%', label: 'POR' },
-      { left: '15%', bottom: '22%', label: 'LTI' },
+      { left: '15%', bottom: '28%', label: 'LTI' },
       { left: '35%', bottom: '20%', label: 'DFC' },
       { left: '65%', bottom: '20%', label: 'DFC' },
-      { left: '85%', bottom: '22%', label: 'LTD' },
-      { left: '30%', bottom: '50%', label: 'MED' },
+      { left: '85%', bottom: '28%', label: 'LTD' },
+      { left: '32%', bottom: '48%', label: 'MCD' },
       { left: '50%', bottom: '38%', label: 'MED' },
-      { left: '70%', bottom: '50%', label: 'MED' },
+      { left: '68%', bottom: '48%', label: 'MCO' },
       { left: '18%', bottom: '78%', label: 'EI' },
       { left: '50%', bottom: '90%', label: 'DC' },
       { left: '82%', bottom: '78%', label: 'ED' }
     ],
     '4-4-2': [
       { left: '50%', bottom: '10%', label: 'POR' },
-      { left: '15%', bottom: '22%', label: 'LTI' },
+      { left: '15%', bottom: '28%', label: 'LTI' },
       { left: '35%', bottom: '20%', label: 'DFC' },
       { left: '65%', bottom: '20%', label: 'DFC' },
-      { left: '85%', bottom: '22%', label: 'LTD' },
+      { left: '85%', bottom: '28%', label: 'LTD' },
       { left: '15%', bottom: '52%', label: 'MI' },
-      { left: '35%', bottom: '48%', label: 'MED' },
+      { left: '35%', bottom: '48%', label: 'MCD' },
       { left: '65%', bottom: '48%', label: 'MED' },
       { left: '85%', bottom: '52%', label: 'MD' },
       { left: '35%', bottom: '90%', label: 'DC' },
@@ -15247,23 +15663,23 @@ function exportBestElevenImage() {
       { left: '15%', bottom: '52%', label: 'CAI' },
       { left: '35%', bottom: '48%', label: 'MCD' },
       { left: '50%', bottom: '38%', label: 'MED' },
-      { left: '65%', bottom: '48%', label: 'MED' },
+      { left: '65%', bottom: '48%', label: 'MCO' },
       { left: '85%', bottom: '52%', label: 'CAD' },
       { left: '35%', bottom: '90%', label: 'DC' },
       { left: '65%', bottom: '90%', label: 'DC' }
     ],
     '4-2-3-1': [
       { left: '50%', bottom: '10%', label: 'POR' },
-      { left: '15%', bottom: '22%', label: 'LTI' },
+      { left: '15%', bottom: '28%', label: 'LTI' },
       { left: '35%', bottom: '20%', label: 'DFC' },
       { left: '65%', bottom: '20%', label: 'DFC' },
-      { left: '85%', bottom: '22%', label: 'LTD' },
+      { left: '85%', bottom: '28%', label: 'LTD' },
       { left: '35%', bottom: '38%', label: 'MCD' },
       { left: '65%', bottom: '38%', label: 'MCD' },
-      { left: '50%', bottom: '78%', label: 'MCO' },
-      { left: '15%', bottom: '78%', label: 'MI' },
+      { left: '50%', bottom: '68%', label: 'MCO' },
+      { left: '15%', bottom: '68%', label: 'MI' },
       { left: '50%', bottom: '90%', label: 'DC' },
-      { left: '85%', bottom: '78%', label: 'MD' }
+      { left: '85%', bottom: '68%', label: 'MD' }
     ]
   };
 
@@ -15393,39 +15809,6 @@ function exportBestElevenImage() {
   link.click();
 }
 
-function addPlayerNote(playerId) {
-  const p = players.find(x => x.id === playerId);
-  if (!p) return;
-
-  const commentVal = document.getElementById('note-comment-input').value.trim();
-  const ratingVal = parseInt(document.getElementById('note-rating-input').value);
-
-  if (!commentVal) {
-    alert('Por favor, escribe un comentario para la nota.');
-    return;
-  }
-
-  p.notes = p.notes || [];
-  p.notes.push({
-    id: Date.now(),
-    date: new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' }),
-    comment: commentVal,
-    rating: ratingVal
-  });
-
-  saveData();
-  openPlayerProfile(playerId);
-}
-
-function deletePlayerNote(playerId, noteId) {
-  if (!confirm('¿Seguro que deseas eliminar esta valoración táctica?')) return;
-  const p = players.find(x => x.id === playerId);
-  if (!p || !p.notes) return;
-
-  p.notes = p.notes.filter(n => n.id !== noteId);
-  saveData();
-  openPlayerProfile(playerId);
-}
 
 function setDeviceMode(val) {
   deviceMode = val;
@@ -15504,25 +15887,6 @@ function setAutoDetectShapes(checked) {
   if (chk) chk.checked = checked;
 }
 
-function toggleMobileFill() {
-  setFillShapes(!fillShapesEnabled);
-}
-
-function updateMobileFillButton() {
-  const btn = document.getElementById('m-tool-fill');
-  if (btn) {
-    btn.textContent = fillShapesEnabled ? '🎨 Rellenar: ON' : '🎨 Rellenar: OFF';
-    btn.classList.toggle('active', fillShapesEnabled);
-  }
-}
-
-function cycleBrushWeight() {
-  const weights = [2.0, 3.2, 5.0, 8.0];
-  let currentIdx = weights.indexOf(drawingWeight);
-  if (currentIdx === -1) currentIdx = 0;
-  let nextIdx = (currentIdx + 1) % weights.length;
-  setBrushWeight(weights[nextIdx]);
-}
 
 function setSquadViewMode(mode) {
   squadViewMode = mode;
@@ -16233,71 +16597,6 @@ function updatePointsEvolutionChart() {
   `;
 }
 
-
-function updateFormationsAnalysis() {
-  const container = document.getElementById('analysis-formations');
-  if (!container) return;
-
-  const team = appData.teams.find(t => t.id === activeTeamId);
-  if (!team || !team.matchHistory || team.matchHistory.length === 0) {
-    container.innerHTML = `<div style="text-align:center; color:var(--text3); font-size:12px; padding:16px;">Registra partidos en el historial para analizar el rendimiento de tus formaciones.</div>`;
-    return;
-  }
-
-  const fStats = {};
-  team.matchHistory.forEach(m => {
-    const f = m.formation || 'Desconocida';
-    if (!fStats[f]) fStats[f] = { p:0, w:0, d:0, l:0, gf:0, gc:0 };
-    fStats[f].p++;
-    fStats[f].gf += (m.goalsFor || 0);
-    fStats[f].gc += (m.goalsAgainst || 0);
-    if (m.result === 'W') fStats[f].w++;
-    else if (m.result === 'D') fStats[f].d++;
-    else if (m.result === 'L') fStats[f].l++;
-  });
-
-  const sortedF = Object.entries(fStats).sort((a, b) => b[1].p - a[1].p);
-
-  let html = `<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; text-align:center; font-size:12px; min-width:400px;">`;
-  html += `<thead><tr style="color:var(--text3); border-bottom:1px solid var(--border); font-weight:700;">
-              <th style="text-align:left; padding:10px 8px;">Formación</th>
-              <th style="padding:10px 8px;">PJ</th>
-              <th style="padding:10px 8px; color:var(--green3);">V</th>
-              <th style="padding:10px 8px; color:var(--amber2);">E</th>
-              <th style="padding:10px 8px; color:var(--red2);">D</th>
-              <th style="padding:10px 8px;">GF</th>
-              <th style="padding:10px 8px;">GC</th>
-              <th style="padding:10px 8px;">Win %</th>
-            </tr></thead><tbody>`;
-
-  sortedF.forEach(([f, s]) => {
-      const winRate = Math.round((s.w / s.p) * 100);
-      let winColor = 'var(--text)';
-      if (winRate >= 50) winColor = 'var(--green3)';
-      else if (winRate < 30) winColor = 'var(--red2)';
-
-      html += `<tr style="border-bottom:1px solid var(--border); transition:background 0.2s;" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='transparent'">
-          <td style="text-align:left; padding:10px 8px; font-weight:800; color:var(--blue2);">${escapeHTML(f)}</td>
-          <td style="padding:10px 8px; font-weight:700; color:var(--text);">${s.p}</td>
-          <td style="padding:10px 8px; color:var(--green3); font-weight:600;">${s.w}</td>
-          <td style="padding:10px 8px; color:var(--amber2); font-weight:600;">${s.d}</td>
-          <td style="padding:10px 8px; color:var(--red2); font-weight:600;">${s.l}</td>
-          <td style="padding:10px 8px; color:var(--text2);">${s.gf}</td>
-          <td style="padding:10px 8px; color:var(--text2);">${s.gc}</td>
-          <td style="padding:10px 8px; font-weight:800; color:${winColor};">${winRate}%</td>
-      </tr>`;
-  });
-  html += `</tbody></table></div>`;
-  
-  const bestF = sortedF.filter(x => x[1].p >= 2).sort((a, b) => (b[1].w / b[1].p) - (a[1].w / a[1].p))[0];
-  if (bestF) {
-      html += `<div style="margin-top:16px; padding:12px 14px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:8px; font-size:12px; color:var(--text); display:flex; gap:10px; align-items:center;">
-          <span style="font-size:18px;">💡</span> <span>La formación más efectiva (mín. 2 partidos) es la <strong style="color:var(--green3); font-size:13px;">${escapeHTML(bestF[0])}</strong> con un <strong style="color:var(--green3); font-size:13px;">${Math.round((bestF[1].w / bestF[1].p)*100)}%</strong> de victorias.</span>
-      </div>`;
-  }
-
-  container.innerHTML = html;
-}
 
 function updateHistoricalSeasonSelector() {
   const selector = document.getElementById('historical-season-selector');
@@ -17029,6 +17328,12 @@ function generateMasterReport() {
 </script>
 <div id="radar-zoom-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); z-index:200; align-items:center; justify-content:center; cursor:pointer;" onclick="this.style.display='none'">
   <div id="radar-zoom-content" style="max-width:90vw; max-height:90vh; display:flex; align-items:center; justify-content:center;"></div>
+</div>
+
+<!-- INDICADOR DE AUTOGUARDADO -->
+<div id="autosave-indicator" style="position:fixed; bottom: 20px; right: 20px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; display: none; align-items: center; gap: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.3s ease; pointer-events: none;">
+  <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; display: inline-block;"></span>
+  <span style="font-size: 11px; color: var(--text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Autoguardado</span>
 </div>
 </body>
 </html>
