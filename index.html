@@ -111,8 +111,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 }
 .toast-notification {
   pointer-events: auto;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.97);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-left: 4px solid var(--blue);
   color: var(--text);
@@ -144,8 +143,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 #custom-confirm-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.75);
   z-index: 10010;
   display: flex;
   align-items: center;
@@ -540,17 +538,19 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   align-items: center;
   justify-content: center;
   opacity: 0;
+  visibility: hidden !important;
   pointer-events: none;
-  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.3s;
 }
 #modal-overlay.open, #coach-modal-overlay.open, #preview-modal-overlay.open, #formation-modal-overlay.open, #customization-modal-overlay.open, #analysis-modal-overlay.open, #best-eleven-modal-overlay.open, #drawing-options-modal-overlay.open, #color-picker-modal-overlay.open, #season-modal-overlay.open, #match-log-modal-overlay.open, #match-hub-modal-overlay.open, #match-history-modal-overlay.open, #player-profile-modal-overlay.open, #single-stat-modal-overlay.open, #saved-formations-modal-overlay.open, #alignment-modal-overlay.open, #comparison-modal-overlay.open {
   opacity: 1 !important;
+  visibility: visible !important;
   pointer-events: auto !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #modal-overlay .modal, #coach-modal-overlay .modal, #preview-modal-overlay .modal, #formation-modal-overlay .modal, #customization-modal-overlay .modal, #analysis-modal-overlay .modal, #best-eleven-modal-overlay .modal, #drawing-options-modal-overlay .modal, #color-picker-modal-overlay .modal, #season-modal-overlay .modal, #match-log-modal-overlay .modal, #match-hub-modal-overlay .modal, #match-history-modal-overlay .modal, #player-profile-modal-overlay .modal, #single-stat-modal-overlay .modal, #saved-formations-modal-overlay .modal, #alignment-modal-overlay .modal, #comparison-modal-overlay .modal {
@@ -657,9 +657,7 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
 }
 
 .modal {
-  background: rgba(15, 23, 42, 0.75) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.96) !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-radius: 14px;
   padding: 28px;
@@ -1235,8 +1233,7 @@ body.mobile-mode .stepper-ctrl button { width: 38px !important; font-size: 20px 
 .stepper-ctrl input[type=number] { padding: 0 !important; margin: 0 !important; width: 36px !important; min-width: 36px !important; box-sizing: border-box !important; text-align: center !important; }
 body.mobile-mode .settings-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
 body.mobile-mode .settings-grid .modal-field { grid-column: span 1 !important; }
-.modal, .dropdown-content, .segmented-active-bar, #radar-zoom-overlay, #main-menu-overlay {
-  will-change: transform, opacity;
+.segmented-active-bar {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
 }
 body.mobile-mode .alt-pos-container { flex-direction: column; }
@@ -2371,7 +2368,7 @@ body.read-only-mode .write-control { display: none !important; }
       </div>
     </div>
     <div id="preview-action-options" style="display:none; gap:12px; align-items:center; background: var(--bg3); padding: 12px; border-radius: 8px; margin-bottom:12px; justify-content:center; flex-wrap:wrap;">
-       <button class="export-action-btn btn-primary" onclick="document.getElementById('download-link').click()">📸 Guardar PNG</button>
+       <button class="export-action-btn btn-primary" onclick="triggerImageDownload()">📸 Guardar PNG</button>
        <button id="btn-export-pdf" class="export-action-btn" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border: none; box-shadow: 0 4px 10px rgba(239,68,68,0.25); display: flex; align-items: center; gap: 6px;" onclick="exportToPDF()">📄 Guardar PDF</button>
        <button id="btn-export-csv" class="export-action-btn" onclick="exportSquadCSV()">📊 Descargar CSV</button>
        <button id="btn-export-copy" class="export-action-btn" onclick="handlePreviewCopy()">📋 Copiar Texto</button>
@@ -2673,7 +2670,7 @@ body.read-only-mode .write-control { display: none !important; }
 </div>
 
 <!-- MODAL ALINEACIÓN MÓVIL -->
-<div id="alignment-modal-overlay" onclick="closeAlignmentModalOutside(event)" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(4px); z-index:104; align-items:center; justify-content:center;">
+<div id="alignment-modal-overlay" onclick="closeAlignmentModalOutside(event)" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:104; align-items:center; justify-content:center;">
   <div class="modal" style="width: 420px; max-width: 90vw; display: flex; flex-direction: column;">
     <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg2);">
       <h3 style="margin: 0; font-size: 16px; color: var(--text);">📋 Alineación y Campo</h3>
@@ -2847,7 +2844,7 @@ body.read-only-mode .write-control { display: none !important; }
 </div>
 
 <!-- MODAL IMPORTAR TRANSFERMARKT -->
-<div id="tm-import-modal-overlay" onclick="if(event.target.id==='tm-import-modal-overlay') closeTmImportModal()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(4px); z-index:110; align-items:center; justify-content:center;">
+<div id="tm-import-modal-overlay" onclick="if(event.target.id==='tm-import-modal-overlay') closeTmImportModal()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:110; align-items:center; justify-content:center;">
   <div class="modal" style="width: 650px; display:flex; flex-direction:column;">
     <h3 style="margin-bottom: 8px; font-size: 18px; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px;">🤖 Importar desde Transfermarkt</h3>
     <div style="font-size:12px; color:var(--text3); margin-bottom:12px; line-height:1.4;">
@@ -2973,7 +2970,7 @@ body.read-only-mode .write-control { display: none !important; }
 </div>
 
 <!-- MODAL REGISTRAR TROFEO -->
-<div id="trophy-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(4px); z-index:160; align-items:center; justify-content:center;" onclick="closeTrophyModalOutside(event)">
+<div id="trophy-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:160; align-items:center; justify-content:center;" onclick="closeTrophyModalOutside(event)">
   <div class="modal" style="width: 280px; padding: 20px; display:flex; flex-direction:column; gap:12px;">
     <h3 style="margin:0; font-size:15px; color:var(--text); text-transform:uppercase; border-bottom:1px solid var(--border); padding-bottom:8px; font-weight:700;">🏆 Añadir Trofeo</h3>
     <div style="display:flex; flex-direction:column; gap:4px;">
@@ -4651,8 +4648,7 @@ function exportTeam(teamId) {
   linkElement.download = `Equipo_${team.name.replace(/\s+/g, '_')}.json`;
   document.body.appendChild(linkElement);
   linkElement.click();
-  document.body.removeChild(linkElement);
-  URL.revokeObjectURL(url);
+  setTimeout(() => { document.body.removeChild(linkElement); URL.revokeObjectURL(url); }, 300);
 }
 
 function exportAllTeamsZip() {
@@ -4679,8 +4675,7 @@ function exportAllTeamsZip() {
     link.download = 'Mis_Equipos_Tactica.zip';
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    setTimeout(() => { document.body.removeChild(link); URL.revokeObjectURL(url); }, 300);
   }).catch(err => alert('Error al generar el archivo ZIP: ' + err));
 }
 
@@ -4694,8 +4689,7 @@ function exportBackup() {
   linkElement.download = 'tactica_pro_backup.json';
   document.body.appendChild(linkElement);
   linkElement.click();
-  document.body.removeChild(linkElement);
-  URL.revokeObjectURL(url);
+  setTimeout(() => { document.body.removeChild(linkElement); URL.revokeObjectURL(url); }, 300);
 }
 
 
@@ -8104,6 +8098,30 @@ async function sharePreview() {
     alert('¡Imagen de vista previa copiada al portapapeles! Ya puedes pegarla en cualquier chat o red social.');
   } catch (err) {
     alert('La API de compartir y el copiado de imágenes no están disponibles en este navegador.');
+  }
+}
+
+function triggerImageDownload() {
+  const link = document.getElementById('download-link');
+  if (!link) return;
+  const href = link.href;
+  const download = link.download;
+  if (!href) return;
+  
+  try {
+    const tempLink = document.createElement('a');
+    tempLink.href = href;
+    tempLink.download = download;
+    tempLink.style.display = 'none';
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    setTimeout(() => {
+      document.body.removeChild(tempLink);
+      closePreviewModal();
+    }, 150);
+  } catch (e) {
+    console.error("Error al descargar archivo directamente:", e);
+    window.open(href, '_blank');
   }
 }
 
@@ -12688,8 +12706,8 @@ function openAnalysisModal(type) {
         const renderPosBlock = (pos, items) => {
           const color = getPosColor(pos) || '#fff';
           let blockHtml = `<div style="width:105px; display:flex; flex-direction:column; gap:6px; flex-shrink:0;">`;
-          blockHtml += `<div style="text-align:center; font-size:11px; font-weight:800; color:#fff; background:rgba(0,0,0,0.4); padding:4px 0; border-radius:6px; border-bottom:3px solid ${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.3); backdrop-filter:blur(4px); text-shadow:0 1px 2px #000;">${pos}</div>`;
-          blockHtml += `<div style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center; align-items:center; min-height:44px; background:rgba(0,0,0,0.3); border-radius:8px; padding:8px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.05); backdrop-filter:blur(2px);">`;
+          blockHtml += `<div style="text-align:center; font-size:11px; font-weight:800; color:#fff; background:rgba(0,0,0,0.6); padding:4px 0; border-radius:6px; border-bottom:3px solid ${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.3); text-shadow:0 1px 2px #000;">${pos}</div>`;
+          blockHtml += `<div style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center; align-items:center; min-height:44px; background:rgba(0,0,0,0.45); border-radius:8px; padding:8px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.05);">`;
           
           if (items.length === 0) blockHtml += `<div style="font-size:10px; color:rgba(255,255,255,0.5); text-align:center; padding:8px 0; font-style:italic;">Vacío</div>`;
           
@@ -13349,8 +13367,7 @@ function doExportSquadCSV(filtered) {
   link.download = `Plantilla_${(teamName || 'Equipo').replace(/\s+/g, '_')}.csv`;
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  setTimeout(() => { document.body.removeChild(link); URL.revokeObjectURL(url); }, 300);
 }
 
 function exportSquadCSV() {
@@ -13381,8 +13398,7 @@ function downloadCSVTemplate() {
   link.download = 'Plantilla_Importar_Jugadores.csv';
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  setTimeout(() => { document.body.removeChild(link); URL.revokeObjectURL(url); }, 300);
 }
 
 function parseCSVRow(text, separator) {
@@ -14489,8 +14505,10 @@ function exportFullBackup() {
     const dateStr = new Date().toISOString().slice(0,10);
     a.href = url;
     a.download = `tableta-tactica-backup-${dateStr}.json`;
+    a.style.display = 'none';
+    document.body.appendChild(a);
     a.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 300);
     showToast('✅ Backup exportado correctamente');
   } catch(e) {
     showToast('❌ Error al exportar: ' + e.message);
@@ -14704,7 +14722,7 @@ function validateLineupRules() {
   // Render alerts to screen
   alerts.forEach(alert => {
     const card = document.createElement('div');
-    card.style.cssText = 'background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); pointer-events: auto; animation: slideInLeft 0.3s ease; width: 260px;';
+    card.style.cssText = 'background: rgba(15, 23, 42, 0.97); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); pointer-events: auto; animation: slideInLeft 0.3s ease; width: 260px;';
     
     card.innerHTML = `
       <div style="display:flex; align-items:center; gap:8px;">
@@ -14925,7 +14943,7 @@ function checkStorageWarning() {
   if (percentage > 80 && !document.getElementById('storage-warning-banner')) {
     const banner = document.createElement('div');
     banner.id = 'storage-warning-banner';
-    banner.style.cssText = 'position:fixed; top:16px; left:50%; transform:translateX(-50%); background:rgba(239, 68, 68, 0.95); backdrop-filter:blur(8px); color:white; padding:12px 20px; border-radius:12px; z-index:9999; box-shadow:0 10px 25px rgba(239, 68, 68, 0.4); font-size:13px; font-weight:600; display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.2); max-width:90%; animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); flex-wrap:wrap; justify-content:center;';
+    banner.style.cssText = 'position:fixed; top:16px; left:50%; transform:translateX(-50%); background:rgba(239, 68, 68, 0.97); color:white; padding:12px 20px; border-radius:12px; z-index:9999; box-shadow:0 10px 25px rgba(239, 68, 68, 0.4); font-size:13px; font-weight:600; display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.2); max-width:90%; animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); flex-wrap:wrap; justify-content:center;';
     
     banner.innerHTML = `
       <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:200px;">
@@ -15803,10 +15821,38 @@ function exportBestElevenImage() {
   ctx.fillText(new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase(), 400, 1168);
 
   const dataUrl = canvas.toDataURL('image/png');
-  const link = document.createElement('a');
-  link.download = `Once_Ideal_${tName.replace(/\s+/g, '_')}.png`;
-  link.href = dataUrl;
-  link.click();
+  const fileName = `Once_Ideal_${tName.replace(/\s+/g, '_')}.png`;
+
+  // Intentar compartir en móvil (más fiable que download en iOS/Android)
+  if (navigator.share && navigator.canShare) {
+    canvas.toBlob(async (blob) => {
+      try {
+        const file = new File([blob], fileName, { type: 'image/png' });
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file], title: 'Once Ideal' });
+          return;
+        }
+      } catch (e) {
+        console.warn('Share fallback:', e);
+      }
+      // Fallback a descarga directa
+      const link = document.createElement('a');
+      link.download = fileName;
+      link.href = dataUrl;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => document.body.removeChild(link), 200);
+    }, 'image/png');
+  } else {
+    const link = document.createElement('a');
+    link.download = fileName;
+    link.href = dataUrl;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    setTimeout(() => document.body.removeChild(link), 200);
+  }
 }
 
 
@@ -17326,12 +17372,12 @@ function generateMasterReport() {
     }, 500);
 }
 </script>
-<div id="radar-zoom-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); z-index:200; align-items:center; justify-content:center; cursor:pointer;" onclick="this.style.display='none'">
+<div id="radar-zoom-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:200; align-items:center; justify-content:center; cursor:pointer;" onclick="this.style.display='none'">
   <div id="radar-zoom-content" style="max-width:90vw; max-height:90vh; display:flex; align-items:center; justify-content:center;"></div>
 </div>
 
 <!-- INDICADOR DE AUTOGUARDADO -->
-<div id="autosave-indicator" style="position:fixed; bottom: 20px; right: 20px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; display: none; align-items: center; gap: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.3s ease; pointer-events: none;">
+<div id="autosave-indicator" style="position:fixed; bottom: 20px; right: 20px; background: rgba(15, 23, 42, 0.95); border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; display: none; align-items: center; gap: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.3s ease; pointer-events: none;">
   <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; display: inline-block;"></span>
   <span style="font-size: 11px; color: var(--text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Autoguardado</span>
 </div>
