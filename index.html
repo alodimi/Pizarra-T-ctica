@@ -533,7 +533,7 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
 .dropdown-item:hover { background: var(--bg3); }
 .dropdown-item svg { width: 14px; height: 14px; margin-right: 6px; vertical-align: middle; }
 /* MODAL */
-#modal-overlay, #coach-modal-overlay, #preview-modal-overlay, #formation-modal-overlay, #customization-modal-overlay, #analysis-modal-overlay, #best-eleven-modal-overlay, #drawing-options-modal-overlay, #color-picker-modal-overlay, #season-modal-overlay, #match-log-modal-overlay, #match-hub-modal-overlay, #match-history-modal-overlay, #player-profile-modal-overlay, #single-stat-modal-overlay, #saved-formations-modal-overlay, #alignment-modal-overlay, #comparison-modal-overlay {
+#modal-overlay, #coach-modal-overlay, #preview-modal-overlay, #formation-modal-overlay, #customization-modal-overlay, #analysis-modal-overlay, #best-eleven-modal-overlay, #drawing-options-modal-overlay, #color-picker-modal-overlay, #season-modal-overlay, #match-log-modal-overlay, #match-hub-modal-overlay, #match-history-modal-overlay, #player-profile-modal-overlay, #single-stat-modal-overlay, #saved-formations-modal-overlay, #alignment-modal-overlay, #comparison-modal-overlay, #trophy-modal-overlay {
   display: flex !important;
   position: fixed;
   inset: 0;
@@ -545,7 +545,7 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
   pointer-events: none;
   transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.3s;
 }
-#modal-overlay.open, #coach-modal-overlay.open, #preview-modal-overlay.open, #formation-modal-overlay.open, #customization-modal-overlay.open, #analysis-modal-overlay.open, #best-eleven-modal-overlay.open, #drawing-options-modal-overlay.open, #color-picker-modal-overlay.open, #season-modal-overlay.open, #match-log-modal-overlay.open, #match-hub-modal-overlay.open, #match-history-modal-overlay.open, #player-profile-modal-overlay.open, #single-stat-modal-overlay.open, #saved-formations-modal-overlay.open, #alignment-modal-overlay.open, #comparison-modal-overlay.open {
+#modal-overlay.open, #coach-modal-overlay.open, #preview-modal-overlay.open, #formation-modal-overlay.open, #customization-modal-overlay.open, #analysis-modal-overlay.open, #best-eleven-modal-overlay.open, #drawing-options-modal-overlay.open, #color-picker-modal-overlay.open, #season-modal-overlay.open, #match-log-modal-overlay.open, #match-hub-modal-overlay.open, #match-history-modal-overlay.open, #player-profile-modal-overlay.open, #single-stat-modal-overlay.open, #saved-formations-modal-overlay.open, #alignment-modal-overlay.open, #comparison-modal-overlay.open, #trophy-modal-overlay.open {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
@@ -582,19 +582,20 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
 
 .color-palette-swatch { width: 44px; height: 44px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s ease; outline: none; }
 .color-palette-swatch:hover { transform: scale(1.1); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-.color-palette-swatch.active { border-color: var(--text); transform: scale(1.05); box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }}
+.color-palette-swatch.active { border-color: var(--text); transform: scale(1.05); box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
 #main-menu-overlay {
-  display: flex;
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  overflow-y: auto;
+  display: flex !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background: var(--bg) !important;
+  z-index: 200 !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  padding: 40px 20px !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 #main-menu-overlay .header-btn {
   color: var(--text);
@@ -614,6 +615,8 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
   padding: 36px;
   box-shadow: var(--shadow-lg);
   transition: all 0.3s ease;
+  height: auto !important;
+  max-height: none !important;
 }
 .menu-tabs {
   display: flex;
@@ -2970,7 +2973,7 @@ body.read-only-mode .write-control { display: none !important; }
 </div>
 
 <!-- MODAL REGISTRAR TROFEO -->
-<div id="trophy-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:160; align-items:center; justify-content:center;" onclick="closeTrophyModalOutside(event)">
+<div id="trophy-modal-overlay" onclick="closeTrophyModalOutside(event)">
   <div class="modal" style="width: 280px; padding: 20px; display:flex; flex-direction:column; gap:12px;">
     <h3 style="margin:0; font-size:15px; color:var(--text); text-transform:uppercase; border-bottom:1px solid var(--border); padding-bottom:8px; font-weight:700;">🏆 Añadir Trofeo</h3>
     <div style="display:flex; flex-direction:column; gap:4px;">
@@ -8143,8 +8146,10 @@ function exportCanvas() {
   const actionOpts = document.getElementById('preview-action-options');
   if (actionOpts) actionOpts.style.display = 'flex';
   
-  document.querySelector(`input[name="export-orientation"][value="${fieldOrientation}"]`).checked = true;
-  document.querySelector(`input[name="export-format"][value="pitch"]`).checked = true;
+  const orientEl = document.querySelector(`input[name="export-orientation"][value="${fieldOrientation}"]`);
+  if (orientEl) orientEl.checked = true;
+  const formatEl = document.querySelector(`input[name="export-format"][value="pitch"]`);
+  if (formatEl) formatEl.checked = true;
   
   document.getElementById('preview-modal-overlay').classList.add('open');
   updatePreview();
@@ -10787,6 +10792,7 @@ function setAiTone(tone, element) {
 }
 
 function generateNarrativeReportText(format = 'html') {
+    if (!players || players.length === 0) return format === 'html' ? '<p style="color:var(--text3)">Añade jugadores a la plantilla para generar el informe narrativo.</p>' : 'Sin jugadores en la plantilla.';
     const activePlayers = players.filter(p => !p.isInjured && !p.isSuspended && p.loan !== 'out');
     const totalGoals = players.reduce((sum, p) => sum + (p.goals || 0), 0);
 
@@ -11282,7 +11288,7 @@ function updateAnalysis() {
     <div style="font-size:10.5px; color:var(--text3); margin-top:3px; line-height:1.2;">${defRecommendation}</div>
   </div>`;
              
-  const avgAge = (players.reduce((s, p) => s + (p.age || 22), 0) / players.length).toFixed(1);
+  const avgAge = players.length > 0 ? (players.reduce((s, p) => s + (p.age || 22), 0) / players.length).toFixed(1) : '—';
   report += `<div style="border-top:1px solid var(--border); padding-top:8px; margin-top:4px;">
                <strong>Media de edad:</strong> ${avgAge} años. `;
   if (avgAge > 29) report += `<span style="color:var(--amber2); font-size: 11px;">Plantilla veterana.</span>`;
@@ -16301,11 +16307,11 @@ function openAddTrophyModal() {
   document.getElementById('trophy-name').value = '';
   document.getElementById('trophy-year').value = currentSeasonName || new Date().getFullYear().toString();
   document.getElementById('trophy-icon').value = '🏆';
-  document.getElementById('trophy-modal-overlay').style.display = 'flex';
+  document.getElementById('trophy-modal-overlay').classList.add('open');
 }
 
 function closeTrophyModal() {
-  document.getElementById('trophy-modal-overlay').style.display = 'none';
+  document.getElementById('trophy-modal-overlay').classList.remove('open');
 }
 
 function closeTrophyModalOutside(event) {
