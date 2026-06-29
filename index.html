@@ -584,18 +584,18 @@ body.light-theme .pos-DEL { background: rgba(180,83,9,.15); color: #b45309; bord
 .color-palette-swatch:hover { transform: scale(1.1); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
 .color-palette-swatch.active { border-color: var(--text); transform: scale(1.05); box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
 #main-menu-overlay {
-  display: flex !important;
-  position: fixed !important;
-  inset: 0 !important;
-  background: var(--bg) !important;
-  z-index: 200 !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  flex-direction: column !important;
-  gap: 20px !important;
-  padding: 40px 20px !important;
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch !important;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 200;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 #main-menu-overlay .header-btn {
   color: var(--text);
@@ -1232,6 +1232,31 @@ body.mobile-mode .modal-field.full-mobile { grid-column: 1 / -1 !important; }
 body.mobile-mode .modal-field label { font-size: 12px; margin-bottom: 2px; }
 body.mobile-mode .modal-field input, body.mobile-mode .modal-field select { padding: 12px; font-size: 16px; border-radius: 10px; }
 body.mobile-mode .modal-field select { height: 44px; padding: 0 12px !important; line-height: 44px; }
+
+/* OPTIMIZATION FOR MOBILE */
+body.mobile-mode #modal-overlay.open, 
+body.mobile-mode #coach-modal-overlay.open, 
+body.mobile-mode #preview-modal-overlay.open, 
+body.mobile-mode #formation-modal-overlay.open, 
+body.mobile-mode #customization-modal-overlay.open, 
+body.mobile-mode #analysis-modal-overlay.open, 
+body.mobile-mode #best-eleven-modal-overlay.open, 
+body.mobile-mode #drawing-options-modal-overlay.open, 
+body.mobile-mode #color-picker-modal-overlay.open, 
+body.mobile-mode #season-modal-overlay.open, 
+body.mobile-mode #match-log-modal-overlay.open, 
+body.mobile-mode #match-hub-modal-overlay.open, 
+body.mobile-mode #match-history-modal-overlay.open, 
+body.mobile-mode #player-profile-modal-overlay.open, 
+body.mobile-mode #single-stat-modal-overlay.open, 
+body.mobile-mode #saved-formations-modal-overlay.open, 
+body.mobile-mode #alignment-modal-overlay.open, 
+body.mobile-mode #comparison-modal-overlay.open, 
+body.mobile-mode #trophy-modal-overlay.open {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(10, 15, 30, 0.95) !important;
+}
 body.mobile-mode .stepper-ctrl button { width: 38px !important; font-size: 20px !important; }
 .stepper-ctrl input[type=number] { padding: 0 !important; margin: 0 !important; width: 36px !important; min-width: 36px !important; box-sizing: border-box !important; text-align: center !important; }
 body.mobile-mode .settings-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
@@ -4173,11 +4198,6 @@ function renderMainMenu() {
       item.style.background = 'linear-gradient(135deg, var(--bg4) 0%, rgba(59, 130, 246, 0.08) 100%)';
     }
     
-    item.onclick = function(event) {
-      if (event.target.closest('.actions')) return;
-      selectTeam(team.id);
-    };
-
     item.innerHTML = `
       <div class="team-info" style="display: flex; align-items: center; gap: 16px; flex: 1; min-width: 0;">
         ${logoHtml}
@@ -4193,6 +4213,11 @@ function renderMainMenu() {
         <button class="btn-delete" title="Eliminar Equipo" onclick="deleteTeam(${team.id})">🗑️</button>
       </div>
     `;
+    item.onclick = function(event) {
+      if (event.target.closest('.actions')) return;
+      selectTeam(team.id);
+    };
+
     container.appendChild(item);
   });
   renderActiveTeamAchievements();
